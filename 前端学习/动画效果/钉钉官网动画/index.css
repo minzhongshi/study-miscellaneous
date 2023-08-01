@@ -1,0 +1,68 @@
+::-webkit-scrollbar {
+    display: none;
+}
+.header {
+    font-family: PingFangSC-Regular,Microsoft YaHei,Open Sans,Arial,Hiragino Sans GB,微软雅黑,STHeiti,WenQuanYi Micro Hei,SimSun,sans-serif;
+    background: white;
+    width: 100%;
+    height: 1500px;
+    line-height: 1500px;
+    font-size: 200px;
+    color: #1a1a1a;
+}
+
+.playground{
+    background: #010001;
+    width: 100%;
+}
+.animation-container{
+    background: #010001;
+    width: 100%;
+    height: 3500px;
+}
+.list{
+    display: flex;
+    justify-content: center;
+    flex-flow:row wrap;
+    position: sticky;
+    top: 20%;
+    margin: auto;
+    /*background: rgba(21,23,27,0.6);*/
+    width: 70%;
+    aspect-ratio: 6 / 1;
+
+}
+.list-item {
+    margin: 70px 80px;
+    flex-shrink:1;
+    height: 30%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10%;
+}
+.list-item:nth-child(3n+1) {
+    background: #3ca877;
+}
+.list-item:nth-child(3n+2) {
+    background: #535bf2;
+}
+.list-item:nth-child(3n+3) {
+    background: #26E2F7;
+}
+.text {
+    font-family: PingFangSC-Regular,Microsoft YaHei,Open Sans,Arial,Hiragino Sans GB,微软雅黑,STHeiti,WenQuanYi Micro Hei,SimSun,sans-serif;
+    background: #010001;
+    color: white;
+    font-size: 48px;
+    height: 1000px;
+    margin-top: 400px;
+    text-align: center;
+}
+.footer{
+    font-family: PingFangSC-Regular,Microsoft YaHei,Open Sans,Arial,Hiragino Sans GB,微软雅黑,STHeiti,WenQuanYi Micro Hei,SimSun,sans-serif;
+    background: white;
+    width: 100%;
+    height: 1500px;
+    line-height: 1500px;
+    font-size: 200px;
+    color: #1a1a1a;
+}

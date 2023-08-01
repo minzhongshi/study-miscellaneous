@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background: #1a1a1a;
+    }
+    .box{
+        background: #535bf2;
+        margin:0 auto;
+        height: 400px;
+        width: 500px;
+        line-height: 400px;
+        text-align: center;
+    }
+    p{
+        color: white;
+        font-size: 23px;
+    }
+</style>
+<body>
+<div class="box">
+    <div>
+        <P>网络状态:</P>
+        <p class="state"></p>
+    </div>
+    <div>
+        <p>延迟:</p>
+        <p class="delay"></p>
+    </div>
+    <div>
+        <p>带宽:</p>
+        <p class="bandwidth"></p>
+    </div>
+
+</div>
+</body>
+<script src="监控网络状态.js"></script>
+<script>
+        const netWorkDownlink = navigator.connection.downlink
+        let state = document.getElementsByClassName('state')
+        let delay = document.getElementsByClassName('delay')
+        let bandwidth = document.getElementsByClassName('bandwidth')
+        state.innerText = navigator.onLine?'在线':'离线'
+        bandwidth.innerText = navigator.connection.downlink
+        delay.innerText = navigator.connection.rtt
+        if (navigator.connection && navigator.connection.onchange === null) {
+            navigator.connection.onchange=() => {
+                if (netWorkDownlink !== navigator.connection.downlink || navigator.connection.rtt === 0) {
+                    //网络断开
+                    state.innerText = '离线'
+                } else if (netWorkDownlink === navigator.connection.downlink || navigator.connection.rtt !== 0) {
+                    //连接到网络
+                    state.innerText = '在线'
+                }
+            }
+        }
+
+
+</script>
+</html>

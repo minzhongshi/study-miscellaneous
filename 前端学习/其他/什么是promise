@@ -1,0 +1,7 @@
+Promise 分为两个部分:
+（1）Promise A+
+     这是个社区规范，带then方法的对象或函数，用来解决回调地狱
+（2）ES6 Promise
+     是一个构造函数，通过构造函数创建的实例满足Promise A+规范，并在里面实现了其他方法
+
+满足Promise A+规范是可以互操作的，也可以使用ES7的async和await
