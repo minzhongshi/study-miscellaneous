@@ -1,0 +1,64 @@
+@use "sass:math";
+body {
+  background: #000;
+}
+
+$size: 200px; // 大小
+$n: 6; // 图片数量
+$pDeg: 360deg / $n; // 顶角
+$r: $size / 2; // 小圆半径
+$R: $r / math.sin($pDeg/2); // 大圆半径
+$innerSize: $R*2;
+
+.container {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  outline: 5px solid #fff;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.inner {
+  width: $innerSize;
+  height: $innerSize;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: $r;
+  img {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -$r;
+    margin-top: -$r;
+    transform-origin: center #{$R + $r};
+    @for $i from 1 through $n {
+      &:nth-child(#{$i}) {
+        transform: rotate($pDeg * ($i - 1));
+      }
+    }
+  }
+}
+
+$u: 1 / $n * 100%; // 动画每个阶段经历的百分比
+$rotateDuration: 3s; // 每张图片旋转时间
+$stopDuration: 1s; // 每张图片停留时间
+$duration: ($rotateDuration + $stopDuration) * $n; // 总时间
+$bckPercent: $stopDuration / ($stopDuration + $stopDuration) * $u;
+@keyframes rotating {
+  @for $i from 1 through $n {
+    $p: $u * $i;
+    $deg: $pDeg * $i;
+    #{$p - $bckPercent},#{$p} {
+      transform: rotate(-$deg);
+    }
+  }
+}
+
+.inner {
+  animation: rotating $duration ease-in infinite;
+}

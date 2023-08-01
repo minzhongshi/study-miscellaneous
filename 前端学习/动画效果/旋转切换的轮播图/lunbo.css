@@ -1,0 +1,76 @@
+body {
+  background: #000;
+}
+
+.container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  outline: 5px solid #fff;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.inner {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 100px;
+}
+.inner img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  transform-origin: center 300px;
+}
+.inner img:nth-child(1) {
+  transform: rotate(0deg);
+}
+.inner img:nth-child(2) {
+  transform: rotate(60deg);
+}
+.inner img:nth-child(3) {
+  transform: rotate(120deg);
+}
+.inner img:nth-child(4) {
+  transform: rotate(180deg);
+}
+.inner img:nth-child(5) {
+  transform: rotate(240deg);
+}
+.inner img:nth-child(6) {
+  transform: rotate(300deg);
+}
+
+@keyframes rotating {
+  8.3333333333%, 16.6666666667% {
+    transform: rotate(-60deg);
+  }
+  25%, 33.3333333333% {
+    transform: rotate(-120deg);
+  }
+  41.6666666667%, 50% {
+    transform: rotate(-180deg);
+  }
+  58.3333333333%, 66.6666666667% {
+    transform: rotate(-240deg);
+  }
+  75%, 83.3333333333% {
+    transform: rotate(-300deg);
+  }
+  91.6666666667%, 100% {
+    transform: rotate(-360deg);
+  }
+}
+.inner {
+  animation: rotating 24s ease-in infinite;
+}
+
+/*# sourceMappingURL=lunbo.css.map */
