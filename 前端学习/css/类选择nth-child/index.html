@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="nav" >
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+</div>
+</body>
+</html>
+<script>
+    let randomColor = "#" +
+        Math.floor(Math.random()*16777215).toString(16)
+</script>
+<style>
+    :root {
+        --main-bg-color: brown;
+    }
+    .nav :nth-child(2n+1){
+        background-color: var(--main-bg-color);
+    }
+</style>
