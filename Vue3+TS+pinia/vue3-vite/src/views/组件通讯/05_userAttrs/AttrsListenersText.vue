@@ -8,7 +8,7 @@ import HintButton from "./HintButton.vue";
 <template>
 <div>
   <h1>userAttrs</h1>
-  <el-button type="primary" size="small" :icon="Edit" ></el-button>
+  <el-button type="primary" size="small" icon="Edit"></el-button>
 <!--  自定义组件-->
   <HintButton type="primary" size="small" :icon="Edit"></HintButton>
 </div>
