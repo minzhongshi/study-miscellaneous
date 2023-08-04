@@ -5,7 +5,7 @@ import EventBusTest from "./views/组件通讯/03_custom-bus/EventBusTest.vue";
 import ModelTest from "./views/组件通讯/04_v-model/ModelTest.vue";
 import AttrsListenersText from "./views/组件通讯/05_userAttrs/AttrsListenersText.vue";
 import RefChildrenParentText from "./views/组件通讯/06_ref-children-parent/RefChildrenParentText.vue";
-import Ref from "./views/vue3_响应式/ref.vue";
+import Ref from "./views/vue3_响应式/ref全家桶/ref.vue";
 </script>
 
 <template>
@@ -14,8 +14,8 @@ import Ref from "./views/vue3_响应式/ref.vue";
 <!--  <EventBusTest/>-->
 <!--  <ModelTest/>-->
 <!--  <AttrsListenersText/>-->
-<!--  <ref/>-->
-  <RefChildrenParentText></RefChildrenParentText>
+  <ref/>
+<!--  <RefChildrenParentText></RefChildrenParentText>-->
 </template>
 
 <style scoped>
