@@ -33,5 +33,6 @@ type p2 = Pick<Person, 'age' | 'name'>
 const obj2:p2 = {
     name: "smz",
     age: 18
+
 }
 console.log(obj2)
