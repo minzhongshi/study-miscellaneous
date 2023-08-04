@@ -1,6 +1,6 @@
 <script setup>
 
-import {debounceRef} from "../../../js/自定义ref实现防抖";
+import {debounceRef} from "../../../../Vue3+TS+pinia/vue3-学习/src/views/vue3_响应式/ref全家桶/customRef实现防抖/自定义ref实现防抖";
 const text = debounceRef('', 1000);
 
 </script>
