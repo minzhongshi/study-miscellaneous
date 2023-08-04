@@ -16,8 +16,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import Child1 from "../04_v-model/Child1.vue";
-import Child2 from "../04_v-model/Child2.vue";
+import Child1 from "./Child1.vue";
+import Child2 from "./Child2.vue";
 // 第一次父组件传给子组件1的值
 const msg =ref(4)
 
