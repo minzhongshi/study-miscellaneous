@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import $bus from "../../../../../Vue3+TS+pinia/vue3-vite/src/bus";
+import $bus from "../../../bus";
 const handler = () => {
   $bus.emit('car',{car:"法拉利"})
 }

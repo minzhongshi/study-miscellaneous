@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import $bus from '../../../../../Vue3+TS+pinia/vue3-vite/src/bus'
+import $bus from '../../../bus'
 import {onMounted} from "vue";
 //组件挂载完成时，为荡秋千组件绑定一个事件，接收兄弟组件传递的数据
 onMounted(()=>{
