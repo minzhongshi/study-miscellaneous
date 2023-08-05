@@ -7,6 +7,7 @@ import AttrsListenersText from "./views/组件通讯/05_userAttrs/AttrsListeners
 import RefChildrenParentText from "./views/组件通讯/06_ref-children-parent/RefChildrenParentText.vue";
 import Ref from "./views/vue3_响应式/ref全家桶/ref.vue";
 import AntiShake from "./views/vue3_响应式/ref全家桶/customRef实现防抖/antiShake.vue";
+import Reactive from "./views/vue3_响应式/reactive全家桶/reactive.vue";
 </script>
 
 <template>
@@ -15,8 +16,9 @@ import AntiShake from "./views/vue3_响应式/ref全家桶/customRef实现防抖
 <!--  <EventBusTest/>-->
 <!--  <ModelTest/>-->
 <!--  <AttrsListenersText/>-->
-  <AntiShake/>
-  <ref/>
+<!--  <AntiShake/>-->
+<!--  <ref/>-->
+  <reactive/>
 <!--  <RefChildrenParentText></RefChildrenParentText>-->
 </template>
 
