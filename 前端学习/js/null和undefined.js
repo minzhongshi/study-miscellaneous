@@ -1,6 +1,6 @@
 /**
  * null表示无对象
- * undefined表示无值
+ * undefined表示无值 不是系统变量
  * null存在设计层面的缺陷,它的原型对象是object
  */
 console.log(typeof null) //object
