@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .vdo-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .title{
+    margin-top: 10vh;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 6em;
+    font-family: 'Montserrat', sans-serif;
+      mix-blend-mode: difference;
+  }
+</style>
+<body>
+<!--autoplay：自动播放-->
+<!--muted：静音-->
+<!--loop：循环播放-->
+<video
+autoplay
+muted
+loop
+class="vdo-bg"
+src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+></video>
+<h1 class="title">Doubt is the key to knowledge</h1>
+</body>
+</html>

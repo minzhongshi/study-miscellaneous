@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字智能适配</title>
+</head>
+<style>
+    .banner {
+        width: 100%;
+        height: 50vh;
+        /*一半斜着*/
+        background: linear-gradient(-120deg,black 51%,#fff 49%);
+        border: 1px solid black;
+        text-align: center;
+        line-height: 50vh;
+    }
+    .title {
+        color: #fff;
+        font-size: 6em;
+        transition: 0.5s;
+        /*颜色混合 目前为叠加*/
+        mix-blend-mode: difference;
+    }
+    .banner:hover .title {
+        transform: translate(-100px);
+    }
+</style>
+<body>
+<div class="banner">
+    <h1 class="title">王侯将相 宁有种乎</h1>
+</div>
+</body>
+</html>

@@ -13,6 +13,7 @@ body {
     align-items: center;
 }
 h1 {
+    /*字体*/
     font-family: 'Luckiest Guy';
     font-size: 20vmin;
     line-height: 1;
