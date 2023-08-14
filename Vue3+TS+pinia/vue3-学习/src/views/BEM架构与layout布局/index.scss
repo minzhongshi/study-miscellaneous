@@ -1,0 +1,16 @@
+/**
+ * layout布局：左侧位菜单 右侧有头部 头部下面为内容
+ * BEM架构：css架构 （block elements modify） 样式规范 例如：
+ * el-input :el 为名字前缀 input为整个块
+ * el-input__wrapper : __wrapper 为块内元素 ===> e
+ * el-button--primary : --primary 为修饰词 ===> m
+ */
+$namespace:"smz" !default; // !default表示该变量如果没有赋过值就用默认的
+$block-sel:"-" !default; // block-sel 表示块级用 “ - ” 连接
+$elem-sel:"__" !default;// elem-sel 表示块内元素用 “__” 连接
+$mod-sel:"--" !default;// mode-sel 表示元素修饰用 “--” 连接
+
+//混入 生成 b 规则
+@mixin b($blcok){
+  $B:#{$namespace + $block-sel + $blcok}
+}
