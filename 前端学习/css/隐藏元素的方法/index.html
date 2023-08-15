@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*关闭该元素的显示，不影响布局，不存在该元素*/
+    .hide1 {
+        display: none;
+    }
+    /*设置为hidden布局中会存在占位，隐藏。collapse和display:none效果一样*/
+    .hide2 {
+        visibility: hidden;
+        visibility: collapse;
+    }
+    /*不透明度，设置为0*/
+    .hide3 {
+        opacity: 0;
+    }
+    /*纵向挤压变形元素为0*/
+    .hide4 {
+        transform: scale(0);
+    }
+    /*移动元素至屏幕外*/
+    .hide5 {
+        transform: translateX(-999999px);
+    }
+    /*裁剪可视区域为0*/
+    .hide6 {
+        clip-path: circle(0);
+    }
+    /*绝对定位，使其移出屏幕*/
+    .hide7 {
+        position: absolute;
+        left: -9999px;
+    }
+</style>
+<body>
+<div class="hide1">第一</div>
+<div class="hide2">第二</div>
+<div class="hide3">第三</div>
+<div class="hide4">第四</div>
+<div class="hide5">第五</div>
+<div class="hide6">第六</div>
+<div class="hide7">第七</div>
+</body>
+</html>
