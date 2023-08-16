@@ -4,6 +4,7 @@
  * el-input :el 为名字前缀 input为整个块
  * el-input__wrapper : __wrapper 为块内元素 ===> e
  * el-button--primary : --primary 为修饰词 ===> m
+ * 全局使用需要在vite.config配置使用
  */
 $namespace:"smz" !default; // !default表示该变量如果没有赋过值就用默认的
 $block-sel:"-" !default; // block-sel 表示块级用 “ - ” 连接
@@ -11,6 +12,33 @@ $elem-sel:"__" !default;// elem-sel 表示块内元素用 “__” 连接
 $mod-sel:"--" !default;// mode-sel 表示元素修饰用 “--” 连接
 
 //混入 生成 b 规则
-@mixin b($blcok){
-  $B:#{$namespace + $block-sel + $blcok}
+// @content 占位符 ===> display:flex
+@mixin b($block){
+  $B:#{$namespace + $block-sel + $block};
+  .#{$B}{
+  @content
+}
+}
+
+//混入 生成e 规则
+//selecctor 父类名
+@mixin e($el){
+  $selecctor: &;
+
+  @at-root {
+    #{$selecctor + $elem-sel + $el} {
+      @content
+    }
+  }
+}
+
+//混入 生成m 规则
+//selecctor 父类名
+@mixin m($m){
+  $selecctor: &;
+  @at-root {
+    #{$selecctor + $mod-sel + $m} {
+      @content
+    }
+  }
 }

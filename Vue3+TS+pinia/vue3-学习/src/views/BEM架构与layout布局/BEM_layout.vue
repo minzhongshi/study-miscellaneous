@@ -3,7 +3,11 @@
 </script>
 
 <template>
-
+  <div class="smz-text">
+    123
+    <div class="smz-text__inner">el</div>
+    <div class="smz-text--success">test</div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -14,6 +18,14 @@
  * el-input__wrapper : __wrapper 为块内元素 ===> e
  * el-button--primary : --primary 为修饰词 ===> m
  */
-
+@include b(text){
+  color: red;
+  @include e(inner){
+    color: #535bf2;
+  }
+  @include m(success){
+    color: hotpink;
+  }
+}
 
 </style>
