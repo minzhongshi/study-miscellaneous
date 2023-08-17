@@ -2,7 +2,11 @@ Event1.vue<script setup lang="ts">
 
 //利用defineEmits方法返回函数触发自定义事件
 //该方法不需要引入
-let emit = defineEmits(['event2']);
+// let emit = defineEmits(['event2']);
+//TS语法
+const emit = defineEmits<{
+  (e:"event2",name:string):void
+}>()
 const handler = () => {
   emit('event2','传给父组件2')
 }

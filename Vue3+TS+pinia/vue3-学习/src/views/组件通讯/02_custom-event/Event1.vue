@@ -1,6 +1,10 @@
 <script setup lang="ts">
 //接收
-let emit = defineEmits(['click'])
+// const emit = defineEmits(['click'])
+//TS语法
+const emit = defineEmits<{
+  (e:"click",name:string):void
+}>()
 //向父组件传值
 const handler =()=>{
   emit('click','向父组件传值1')
