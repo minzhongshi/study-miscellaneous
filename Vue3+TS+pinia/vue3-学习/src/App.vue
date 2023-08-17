@@ -8,6 +8,7 @@ import RefChildrenParentText from "./views/组件通讯/06_ref-children-parent/R
 import Ref from "./views/vue3_响应式/ref全家桶/ref.vue";
 import AntiShake from "./views/vue3_响应式/ref全家桶/customRef实现防抖/antiShake.vue";
 import Reactive from "./views/vue3_响应式/reactive全家桶/reactive.vue";
+import BEM_layout from "./views/BEM架构与layout布局/BEM_layout.vue";
 </script>
 
 <template>
@@ -18,7 +19,8 @@ import Reactive from "./views/vue3_响应式/reactive全家桶/reactive.vue";
 <!--  <AttrsListenersText/>-->
 <!--  <AntiShake/>-->
 <!--  <ref/>-->
-  <reactive/>
+<!--  <reactive/>-->
+  <BEM_layout/>
 <!--  <RefChildrenParentText></RefChildrenParentText>-->
 </template>
 
