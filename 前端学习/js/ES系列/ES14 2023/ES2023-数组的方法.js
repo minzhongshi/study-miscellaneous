@@ -12,13 +12,14 @@ const sortedArr = arr.toSorted()
 const reversedArr = arr.toReversed()
 
 // 3.toSplice() 分割
-const spliceArr = arr.toSplice()
+// const spliceArr = arr.toSplice()
 
 // 4.with() 修改指定索引返回新数组
 const withArr = arr.with(1, 4);
 
 // 5.findLast() 从数组尾部查找
-const result = arr.findLast(CONDITION);
+const result = arr.findLast((element) => element > 2);
 
 // 6.findLastIndex() 从数组尾部查找返回索引
-const resultIndex = arr.findLastIndex(CONDITION);
+const resultIndex = arr.findLastIndex((element) => element > 2);
+

@@ -13,3 +13,6 @@ console.log(b.name) // undefined
 
 let c = null// 对象
 console.log(c) // null
+
+
+let undefined = 'abc';

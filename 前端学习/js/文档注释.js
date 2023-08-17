@@ -16,3 +16,4 @@ function debounce(func, duration = 1000) {
         },duration)
     }
 }
+
