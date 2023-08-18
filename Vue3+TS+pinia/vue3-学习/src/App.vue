@@ -9,6 +9,7 @@ import Ref from "./views/vue3_响应式/ref全家桶/ref.vue";
 import AntiShake from "./views/vue3_响应式/ref全家桶/customRef实现防抖/antiShake.vue";
 import Reactive from "./views/vue3_响应式/reactive全家桶/reactive.vue";
 import BEM_layout from "./views/BEM架构与layout布局/BEM_layout.vue";
+import SzieDireect from "./views/指令/szieDireect.vue";
 </script>
 
 <template>
@@ -20,8 +21,9 @@ import BEM_layout from "./views/BEM架构与layout布局/BEM_layout.vue";
 <!--  <AntiShake/>-->
 <!--  <ref/>-->
 <!--  <reactive/>-->
-  <BEM_layout/>
+<!--  <BEM_layout/>-->
 <!--  <RefChildrenParentText></RefChildrenParentText>-->
+  <SzieDireect/>
 </template>
 
 <style scoped>
