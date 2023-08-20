@@ -10,6 +10,9 @@ import AntiShake from "./views/vue3_响应式/ref全家桶/customRef实现防抖
 import Reactive from "./views/vue3_响应式/reactive全家桶/reactive.vue";
 import BEM_layout from "./views/BEM架构与layout布局/BEM_layout.vue";
 import SzieDireect from "./views/指令/szieDireect.vue";
+import ProvideInjectTest from "./views/组件通讯/07_provide-inject/ProvideInjectTest.vue";
+import Index from "./views/组件通讯/08_pinia/index.vue";
+import SlotTest from "./views/组件通讯/09_slot/SlotTest.vue";
 </script>
 
 <template>
@@ -23,7 +26,10 @@ import SzieDireect from "./views/指令/szieDireect.vue";
 <!--  <reactive/>-->
 <!--  <BEM_layout/>-->
 <!--  <RefChildrenParentText></RefChildrenParentText>-->
-  <SzieDireect/>
+<!--  <SzieDireect/>-->
+<!--  <ProvideInjectTest/>-->
+<!--  <Index/>-->
+  <SlotTest/>
 </template>
 
 <style scoped>
