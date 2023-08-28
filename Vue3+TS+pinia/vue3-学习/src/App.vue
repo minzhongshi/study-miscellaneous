@@ -15,10 +15,14 @@ import Index from "./views/组件通讯/08_pinia/index.vue";
 import SlotTest from "./views/组件通讯/09_slot/SlotTest.vue";
 import Card from "./components/组件/全局组件/Card.vue";
 import Tree from "./components/组件/递归组件/Tree.vue";
-import {markRaw, reactive, ref, shallowRef} from "vue";
+import {defineAsyncComponent, markRaw, reactive, ref, shallowRef} from "vue";
 import A from "./components/组件/动态组件/A.vue";
 import B from "./components/组件/动态组件/B.vue";
 import C from "./components/组件/动态组件/C.vue";
+import Skeleton from "./components/组件/异步组件/skeleton.vue";
+import Loading from "./components/组件/Teleport传送组件/Loading.vue";
+import KeepA from "./components/组件/keep-alive/keep-A.vue";
+import KeepB from "./components/组件/keep-alive/keep-B.vue";
 
 // 递归组件
 interface Tree {
@@ -91,31 +95,90 @@ const switchCom =(item,index)=>{
   active.value = index
 }
 
+//异步组件
+const SyncVue = defineAsyncComponent(()=>import('coms/组件/异步组件/sync.vue'))
+const SyncVue2 = defineAsyncComponent({
+  // 加载异步组件时使用的组件
+  loader: () => import('coms/组件/异步组件/sync.vue'),
+  // 异步加载的等待组件
+  loadingComponent: Skeleton,
+  // 加载失败时使用的组件
+  errorComponent: Skeleton,
+// 在显示加载组件之前延迟。默认值：200ms。
+  delay: 1000,
+  // 超过给定时间，则会显示错误组件。默认值：Infinity。
+  timeout: 3000
+})
+
+// 缓存组件
+const flag = ref<boolean>(true)
 </script>
 
 <template>
 <!--  <Father />-->
+
 <!--  <EventTest/>-->
+
 <!--  <EventBusTest/>-->
+
 <!--  <ModelTest/>-->
+
 <!--  <AttrsListenersText/>-->
+
 <!--  <AntiShake/>-->
+
 <!--  <ref/>-->
+
 <!--  <reactive/>-->
+
 <!--  <BEM_layout/>-->
+
 <!--  <RefChildrenParentText></RefChildrenParentText>-->
+
 <!--  <SzieDireect/>-->
+
 <!--  <ProvideInjectTest/>-->
+
 <!--  <Index/>-->
+
 <!--  <SlotTest/>-->
+
 <!--  <Card/>-->
+
 <!--    <Tree :data="data"></Tree>-->
-    <div style="display: flex" >
-      <div @click="switchCom(item,index)" :class="[active === index ? 'active': '']" class="tabs" v-for="(item,index) in data2">
-        <div>{{item.name}}</div>
-      </div>
-    </div>
-    <component :is="comId"></component>
+
+<!--    <div style="display: flex" >-->
+<!--      <div @click="switchCom(item,index)" :class="[active === index ? 'active': '']" class="tabs" v-for="(item,index) in data2">-->
+<!--        <div>{{item.name}}</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <component :is="comId"></component>-->
+<!--  异步组件-->
+<!--  <Suspense>-->
+<!--    <div>-->
+<!--      <SyncVue/>-->
+<!--&lt;!&ndash;      <SyncVue2/>&ndash;&gt;-->
+<!--    </div>-->
+<!--    &lt;!&ndash;    加载异步时执行下面&ndash;&gt;-->
+<!--    <template #fallback>-->
+<!--      <Skeleton/>-->
+<!--    </template>-->
+<!--  </Suspense>-->
+<!--  传送组件-->
+<!--    <div class="teleport">-->
+<!--      <Teleport to="body" :disabled="false">-->
+<!--        <Loading/>-->
+<!--      </Teleport>-->
+<!--    </div>-->
+<!--  缓存组件-->
+  <div>
+    <el-button type="primary" @click="flag = !flag">切换组件</el-button>
+    <keep-alive>
+      <keep-a v-if="flag"/>
+      <keep-b v-else/>
+    </keep-alive>
+  </div>
+
 </template>
 
 <style scoped>
@@ -127,5 +190,10 @@ const switchCom =(item,index)=>{
   padding: 5px 10px;
   margin-left: 5px;
   cursor: pointer;
+}
+.teleport{
+  height: 50vh;
+  background-color: #6fc3df;
+  position: relative;
 }
 </style>
