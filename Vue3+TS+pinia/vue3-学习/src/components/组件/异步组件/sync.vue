@@ -15,7 +15,8 @@
  *          timeout: 3000
  *        })
  *
- *  搭配<Suspense>使用
+ *  搭配<Suspense>使用（试用）
+ *   接受两个插槽：#default 和 #fallback。它将在内存中渲染默认插槽的同时展示后备插槽内容。
  *  <Suspense>
  *     <div>
  *       <SyncVue/>

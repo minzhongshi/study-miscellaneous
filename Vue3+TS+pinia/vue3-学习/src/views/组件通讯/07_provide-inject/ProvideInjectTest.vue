@@ -1,6 +1,9 @@
 <script setup lang="ts">
 /**
+ * 依赖注入
  * vue3 提供了provide(提供)与inject(注入)，可以实现隔辈组件通讯
+ * 利用了原型链，在父组件provides上创建新对象：Object.create()parentProvides
+ * 子组件使用时在原型链上查找
  * provide是个方法提供两个参数,提供数据
  *     提供数据的key
  *     组件提供的数据
@@ -13,7 +16,10 @@
  */
 import Child from "./Child.vue";
 import {ref, provide, reactive} from "vue";
-let car = ref("大众")
+let car = ref<String>("大众")
+type Car = {
+  car:string
+}
 let cars = reactive([{car:'大众'},{car:'宝马'}])
 provide("TOKEN",cars)
 </script>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {inject} from "vue";
-
 let cars = inject('TOKEN')
 console.log(cars)
 const hander=()=>{

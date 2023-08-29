@@ -23,6 +23,9 @@ import Skeleton from "./components/组件/异步组件/skeleton.vue";
 import Loading from "./components/组件/Teleport传送组件/Loading.vue";
 import KeepA from "./components/组件/keep-alive/keep-A.vue";
 import KeepB from "./components/组件/keep-alive/keep-B.vue";
+import Index2 from "./components/组件/transition动画过度组件/index.vue";
+import GSAP from "./components/组件/transition动画过度组件/GSAP.vue";
+import TSG from "./components/组件/transition动画过度组件/transitionGroup.vue";
 
 // 递归组件
 interface Tree {
@@ -146,7 +149,7 @@ const flag = ref<boolean>(true)
 <!--  <Card/>-->
 
 <!--    <Tree :data="data"></Tree>-->
-
+<!--动态组件-->
 <!--    <div style="display: flex" >-->
 <!--      <div @click="switchCom(item,index)" :class="[active === index ? 'active': '']" class="tabs" v-for="(item,index) in data2">-->
 <!--        <div>{{item.name}}</div>-->
@@ -171,14 +174,17 @@ const flag = ref<boolean>(true)
 <!--      </Teleport>-->
 <!--    </div>-->
 <!--  缓存组件-->
-  <div>
-    <el-button type="primary" @click="flag = !flag">切换组件</el-button>
-    <keep-alive>
-      <keep-a v-if="flag"/>
-      <keep-b v-else/>
-    </keep-alive>
-  </div>
-
+<!--  <div>-->
+<!--    <el-button type="primary" @click="flag = !flag">切换组件</el-button>-->
+<!--    <keep-alive>-->
+<!--      <keep-a v-if="flag"/>-->
+<!--      <keep-b v-else/>-->
+<!--    </keep-alive>-->
+<!--  </div>-->
+<!--过度组件-->
+  <index2/>
+  <GSAP/>
+  <TSG/>
 </template>
 
 <style scoped>
