@@ -15,13 +15,17 @@
  * markRaw：把某个数据，标记为普通对象，当我们把它放到响应式对象中，也依然是非响应式的
  */
 import Child from "./Child.vue";
-import {ref, provide, reactive} from "vue";
+import {ref, provide, reactive, InjectionKey} from "vue";
 let car = ref<String>("大众")
 type Car = {
   car:string
 }
-let cars = reactive([{car:'大众'},{car:'宝马'}])
-provide("TOKEN",cars)
+type CarData = {
+  [index: number]:Car
+}
+let cars:CarData = reactive([{car:'大众'},{car:'宝马'}])
+const TOKEN = Symbol() as InjectionKey<CarData>
+provide(TOKEN,cars)
 </script>
 
 <template>
