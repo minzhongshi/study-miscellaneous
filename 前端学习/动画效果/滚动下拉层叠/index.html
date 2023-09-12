@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .playground{
+    background-image: url(./bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-color: #1B1A22;
+    height: 220vh;
+    width: 99vw;
+  }
+  .animation-container{
+    display: flex;
+    justify-content : space-between;
+    margin: 0 15vw;
+  }
+  .list{
+    margin-top: 3vh;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content : space-between;
+    align-items: flex-end;
+    white-space:nowrap;
+    width: 21vw;
+    height: 90vh;
+    color: white;
+    position: sticky;
+    top: 3vh;
+  }
+  .text-p{
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: right;
+  }
+  .text-last{
+    font-size: 1vw;
+    color: #C7C7C8;
+    text-align: right;
+  }
+  .text-but{
+    width: 6vw;
+    color: white;
+    height: 4vh;
+    line-height: 4vh;
+    text-align: center;
+    font-size: 0.6vw;
+    background: #5045E4;
+    border-radius: 0.4rem;
+    display: inline-block;
+  }
+  .text-but:hover{
+    cursor:pointer;
+    background: #5045E6;
+  }
+  .list-item{
+    position: sticky;
+    top: 0;
+    border: 1px solid #443A50;
+    margin-bottom: 3%;
+    border-radius: 1rem;
+    width: 35vw;
+    height: 25vh;
+    padding: 0 3%;
+    background: linear-gradient(50deg, #4E46E6 5%,#171522 15%, #171522 85%, #81499C 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+  }
+  .list-item:hover{
+    background:#5045E5;
+    transition: all 0.5s ease;
+  }
+  .cord{
+    width: 53%;
+  }
+  .cord-hared{
+    font-size: 1.5vw;
+    font-weight: bold;
+  }
+  .cord-text{
+    color: #76747A;
+    font-size: 0.7vw;
+  }
+  .cord-number{
+    text-align: right;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+</style>
+<body>
+<div class="playground">
+  <div class="animation-container">
+    <div class="list">
+      <div class="list-item">
+        <div class="cord">
+          <p class="cord-hared">响应式设计</p>
+          <p class="cord-text">通过合理设计UI模板组件，可以确保它们在不同屏幕尺寸和设备上都能很好展示，提供更好的用户体验。</p>
+        </div>
+        <div class="cord-number">01</div>
+      </div>
+      <div class="list-item">
+        <div class="cord">
+          <p class="cord-hared">响应式设计</p>
+          <p class="cord-text">通过合理设计UI模板组件，可以确保它们在不同屏幕尺寸和设备上都能很好展示，提供更好的用户体验。</p>
+        </div>
+        <div class="cord-number">02</div>
+      </div>
+      <div class="list-item">
+        <div class="cord">
+          <p class="cord-hared">响应式设计</p>
+          <p class="cord-text">通过合理设计UI模板组件，可以确保它们在不同屏幕尺寸和设备上都能很好展示，提供更好的用户体验。</p>
+        </div>
+        <div class="cord-number">03</div>
+      </div>
+      <div class="list-item">
+        <div class="cord">
+          <p class="cord-hared">响应式设计</p>
+          <p class="cord-text">通过合理设计UI模板组件，可以确保它们在不同屏幕尺寸和设备上都能很好展示，提供更好的用户体验。</p>
+        </div>
+        <div class="cord-number">04</div>
+      </div>
+      <div class="list-item">
+        <div class="cord">
+          <p class="cord-hared">响应式设计</p>
+          <p class="cord-text">通过合理设计UI模板组件，可以确保它们在不同屏幕尺寸和设备上都能很好展示，提供更好的用户体验。</p>
+        </div>
+        <div class="cord-number">05</div>
+      </div>
+    </div>
+    <div class="text">
+      <div class="text-p">
+        <p>UI模板组件设计</p>
+        <p>有助于提高设计效率、保持一致</p>
+        <p>性和提供优质的用户体验</p>
+        <p>是现代应用和网站设计中</p>
+        <p>不可或缺的重要环节</p>
+      </div>
+      <div class="text-last">
+        <p>服务范围</p>
+        <p>PREPONDERANCE</p>
+        <div>
+          <div class="text-but">了解更多</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script>
+  const items = document.querySelectorAll('.list-item');
+  const playGround = document.querySelector('.playground');
+  const list =  document.querySelector('.list');
+  function createAnimation(scrollStart,scrollEnd, valueStart,valueEnd) {
+    return function (scroll) {
+      if (scroll<=scrollStart) {
+        return valueStart;
+      }
+      if (scroll>=scrollEnd) {
+        return  valueEnd;
+      }
+      return (
+              valueStart +
+              (valueEnd-valueStart)
+              * (scroll-scrollStart)
+              / (scrollEnd-scrollStart)
+      )
+    }
+  }
+</script>

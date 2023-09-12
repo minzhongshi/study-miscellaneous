@@ -26,7 +26,10 @@ import KeepB from "./components/组件/keep-alive/keep-B.vue";
 import Index2 from "./components/组件/transition动画过度组件/index.vue";
 import GSAP from "./components/组件/transition动画过度组件/GSAP.vue";
 import TSG from "./components/组件/transition动画过度组件/transitionGroup.vue";
-
+import LazyDireect from "./views/自定义指令/监听是否出现在视口指令v-lazy-ob/lazyDireect.vue";
+import Vmove from "./views/自定义指令/局部使用/index.vue";
+import VHasShow from "./views/自定义指令/局部使用/鉴权/v-has-show.vue";
+import VDrag from "./views/自定义指令/局部使用/拖拽/v-drag.vue";
 // 递归组件
 interface Tree {
   name: string,
@@ -182,9 +185,17 @@ const flag = ref<boolean>(true)
 <!--    </keep-alive>-->
 <!--  </div>-->
 <!--过度组件-->
-  <index2/>
-  <GSAP/>
-  <TSG/>
+<!--  <index2/>-->
+<!--  <GSAP/>-->
+<!--  <TSG/>-->
+<!--  图片懒加载 -->
+<!--  <lazy-direect/>-->
+<!--  自定义指令-局部使用-->
+<!--  <Vmove/>-->
+<!--  自定义指令-鉴权-->
+<!--  <v-has-show/>-->
+<!--  自定义指令-拖拽-->
+    <v-drag />
 </template>
 
 <style scoped>

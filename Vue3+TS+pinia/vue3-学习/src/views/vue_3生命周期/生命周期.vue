@@ -13,7 +13,7 @@ import {
 } from "vue";
 
 /**
- * 再Vue3 的生命周期中 beforeCreate 和 created setup语法糖模式是没有的 用setup代替
+ * 在Vue3 的生命周期中 beforeCreate 和 created setup语法糖模式是没有的 用setup代替
  * onBeforeMount读不到dom onMounted可以
  * onBeforeUpdate获取的是更新之前的dom onUpdated是更新之后的
  * onRenderTracked 和 onRenderTriggered 用于调试依赖的收集与更新

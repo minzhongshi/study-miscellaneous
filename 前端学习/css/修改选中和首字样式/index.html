@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+div{
+    width: 40%;
+    height: 400px;
+}
+p::selection{
+    background-color: black;
+    color: #535bf2;
+}
+p::first-letter{
+    font-size: 48px;
+    color: hotpink;
+}
+</style>
+<body>
+<div>
+    <p>这是一段测试文字，这是一段测试文字，这是一段测试文字这是一段测试文字这是一段测试文字这是一段测试文字这是一段测试文字这是一段测试文字，这是一段测试文字这是一段测试文字这是一段测试文字这是一段测试文字这是一段测试文字这是一段测试文字</p>
+</div>
+</body>
+<script>
+    /**
+     * 利用伪类selection可以更改选中的样式
+     * p::selection{
+     *     background-color: black;
+     *     color: #535bf2;
+     * }
+     *
+     * 利用伪类first-letter可以更改第一个子的样式
+     * p::first-letter{
+     *     font-size: 48px;
+     *     color: hotpink;
+     * }
+     */
+</script>
+</html>

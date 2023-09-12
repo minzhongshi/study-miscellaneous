@@ -11,6 +11,9 @@ import store from "./store";
 // 全局挂载组件
 // @ts-ignore
 import Card from './components/组件/全局组件/Card.vue';
+// tailwindcss
+import './tailwindcss.css'
+import lazyDireect from "./directs/视口监控指令/lazyDireect";
 
 const app = createApp(App)
 // 循环挂载Icon图标
@@ -21,4 +24,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.component('Card',Card)
 //挂载指令，省略‘v-’前缀
 app.directive('size-ob', sizeDireect)
+app.directive('lazy-ob', lazyDireect)
 app.use(store).use(ElementPlus).mount('#app')
