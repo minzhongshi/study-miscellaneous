@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  body{
+    background: linear-gradient(.25turn,red,yellow);
+  }
+  .box{
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+    font-size: 50px;
+    margin: auto;
+    position: relative;
+    background: rgba(255,255,255,0.4);
+    /*自身也会变模糊*/
+    /*filter: blur(5px);*/
+    backdrop-filter: blur(10px);
+  }
+  h1{
+    color: white;
+    font-size: 100px;
+    position: absolute;
+
+  }
+</style>
+<body>
+<h1>磨砂玻璃效果</h1>
+<div class="box">smz</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  body{
+    background: url("R-C.jpg") center center no-repeat fixed;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+  }
+  .modal{
+    position: fixed;
+    width: 100%;
+    right: 0;
+    height: 100%;
+    top: 0;
+    transition: 2s;
+    border-left: 5px solid #333;
+    /*灰度滤镜*/
+    backdrop-filter: grayscale(1);
+  }
+  body:hover .modal {
+    width: 0;
+  }
+</style>
+<body>
+<div class="modal"></div>
+</body>
+</html>
