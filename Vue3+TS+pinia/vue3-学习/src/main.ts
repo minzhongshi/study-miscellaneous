@@ -25,4 +25,9 @@ app.component('Card',Card)
 //挂载指令，省略‘v-’前缀
 app.directive('size-ob', sizeDireect)
 app.directive('lazy-ob', lazyDireect)
+// 自定义Hooks + 自定义指令
+import useResize from "../src/hooks/useResize";
+// @ts-ignore
+app.use(useResize)
+
 app.use(store).use(ElementPlus).mount('#app')
