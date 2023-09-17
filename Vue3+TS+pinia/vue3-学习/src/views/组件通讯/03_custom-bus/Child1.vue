@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import $bus from '../../../bus'
-import {onMounted} from "vue";
-//组件挂载完成时，为荡秋千组件绑定一个事件，接收兄弟组件传递的数据
+import {getCurrentInstance, onMounted, ref} from "vue";
+const app = getCurrentInstance()
+const cars = ref()
+//组件挂载完成时，为当前组件绑定一个事件，接收兄弟组件传递的数据
 onMounted(()=>{
   //第一个参数：事件类型
   //第二个参数：事件回调
-  $bus.on('car',(car)=>{
+  app?.proxy?.$bus.on('car',(car)=>{
     console.log(car)
+    cars.value = car
   })
-  console.log($bus)
+  console.log(app?.proxy?.$bus)
 })
 </script>
 
 <template>
-<div class="child1">我是子组件1</div>
+<div class="child1">我是子组件1
+<div>{{cars}}</div>
+</div>
 </template>
 
 <style scoped>

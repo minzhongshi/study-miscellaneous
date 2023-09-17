@@ -33,6 +33,7 @@ import VDrag from "./views/自定义指令/局部使用/拖拽/v-drag.vue";
 import Mixins from "./views/自定义Hooks/vue2mixins/Mixins.vue";
 import Hooks from "./views/自定义Hooks/Hooks-图片转Base64/Hooks.vue";
 import HooksR from "./views/自定义Hooks/Hooks-监听元素宽高/Hooks-R.vue";
+import Postcss from "./views/postcss转换/postcss.vue";
 // 递归组件
 interface Tree {
   name: string,
@@ -127,7 +128,7 @@ const flag = ref<boolean>(true)
 <!--  <Father />-->
 
 <!--  <EventTest/>-->
-
+<!--mitt-->
 <!--  <EventBusTest/>-->
 
 <!--  <ModelTest/>-->
@@ -204,7 +205,9 @@ const flag = ref<boolean>(true)
 <!--  自定义Hooks-图片转64-->
 <!--  <Hooks/>-->
 <!--  自定义Hooks-监听元素宽高-->
-  <Hooks-R/>
+<!--  <Hooks-R/>-->
+<!--  postcss转换插件-->
+  <postcss />
 </template>
 
 <style scoped>

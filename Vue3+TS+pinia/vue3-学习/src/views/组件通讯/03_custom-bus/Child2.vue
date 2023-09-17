@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import $bus from "../../../bus";
+
+import {getCurrentInstance} from "vue";
+const app = getCurrentInstance()
 const handler = () => {
-  $bus.emit('car',{car:"法拉利"})
+  app?.proxy?.$bus.emit('car',{car:"法拉利"})
 }
 </script>
 
