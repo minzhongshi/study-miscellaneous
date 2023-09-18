@@ -34,6 +34,7 @@ import Mixins from "./views/自定义Hooks/vue2mixins/Mixins.vue";
 import Hooks from "./views/自定义Hooks/Hooks-图片转Base64/Hooks.vue";
 import HooksR from "./views/自定义Hooks/Hooks-监听元素宽高/Hooks-R.vue";
 import Postcss from "./views/postcss转换/postcss.vue";
+import H from "./views/三种编程风格/H.vue";
 // 递归组件
 interface Tree {
   name: string,
@@ -207,7 +208,9 @@ const flag = ref<boolean>(true)
 <!--  自定义Hooks-监听元素宽高-->
 <!--  <Hooks-R/>-->
 <!--  postcss转换插件-->
-  <postcss />
+<!--  <postcss />-->
+<!--  函数式编程-->
+  <H/>
 </template>
 
 <style scoped>

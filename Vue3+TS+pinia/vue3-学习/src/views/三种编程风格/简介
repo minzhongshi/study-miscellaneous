@@ -1,0 +1,49 @@
+总共有三种编码风格：
+   1.template 模板书写风格
+     Vue 使用一种基于 HTML 的模板语法，
+     使我们能够声明式地将其组件实例的数据绑定到呈现的 D
+     OM 上。所有的 Vue 模板都是语法层面合法的 HTML，
+     可以被符合规范的浏览器和 HTML 解析器解析。
+
+   2.jsx/tsx编写风格
+     对DOM操作更加灵活，发挥出JS的完全编程能力
+     但是需要手动实现渲染优化，Vue在模板语法中做的优化在此中不适用
+     例子：
+        根据 props 上的 reverse 属性，来决定是否要调换两块内容的渲染顺序。
+        jsx:
+     const renderContent = () => {
+       const Content = [
+         <div class="foo">Foo DOM...</div>,
+         <div class="bar">Bar DOM...</div>,
+       ];
+       if (props.reverse) {
+         Content.reverse();
+       }
+       return <div>{Content}</div>;
+     }
+
+      template:
+       <template>
+         <div>
+           <template v-if="reverse">
+             <div class="bar">Bar DOM...</div>
+             <div class="foo">Foo DOM...</div>
+           </template>
+           <template v-else>
+             <div class="foo">Foo DOM...</div>
+             <div class="bar">Bar DOM...</div>
+           </template>
+         </div>
+       </template>
+
+   3.函数式编写风格
+     vue中提供了h函数
+     可以直接跳过模板的编译过程
+     parser函数 -> ast抽象语法树 -> transform -> js 可描述api -> generate生成 -> render
+
+     <div><span>1</span></div>
+     ===>
+     let render = () =>{
+       return h('div),{},[
+         h('span),{},'1']
+     }
