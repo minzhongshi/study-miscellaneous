@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .container{
+    height: 100vh;
+    display: flex;
+  }
+  .part{
+    /*符合属性*/
+    /*flex: 1 0 0;*/
+    /*占据的比例*/
+    flex-grow: 1;
+    /*起始占据宽度*/
+    flex-basis: 0;
+  }
+</style>
+<body>
+<div class="container">
+  <div class="part" style="background: hotpink">
+    这是三栏布局
+  </div>
+  <div class="part" style="background: #3ca877"></div>
+  <div class="part" style="background: #535bf2;"></div>
+</div>
+</body>
+</html>
