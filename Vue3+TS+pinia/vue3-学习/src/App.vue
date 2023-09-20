@@ -35,6 +35,7 @@ import Hooks from "./views/自定义Hooks/Hooks-图片转Base64/Hooks.vue";
 import HooksR from "./views/自定义Hooks/Hooks-监听元素宽高/Hooks-R.vue";
 import Postcss from "./views/postcss转换/postcss.vue";
 import H from "./views/三种编程风格/H.vue";
+import EnvironmentVariable from "./views/环境变量/EnvironmentVariable.vue";
 // 递归组件
 interface Tree {
   name: string,
@@ -210,7 +211,9 @@ const flag = ref<boolean>(true)
 <!--  postcss转换插件-->
 <!--  <postcss />-->
 <!--  函数式编程-->
-  <H/>
+<!--  <H/>-->
+<!--  环境变量-->
+  <EnvironmentVariable />
 </template>
 
 <style scoped>

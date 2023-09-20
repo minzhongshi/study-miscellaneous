@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {defineProps, PropType} from "vue";
 //需要用defineProps方法接收父组件传递的数据
 //该方法不用引入，为Vue3自带，直接使用
 //通过props获取的数据是代理对象
@@ -20,7 +21,7 @@ const props = withDefaults(defineProps<{ info:string, money:number }>(),
 //     type:Number,
 //     default:0
 //   }})
-console.log(props)
+console.log(props.info)
 </script>
 
 <template>
