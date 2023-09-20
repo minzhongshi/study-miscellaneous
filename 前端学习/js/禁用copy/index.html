@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    禁用复制
+</div>
+</body>
+<script>
+    /**
+     * 监听copy事件，阻止默认行为 e.preventDefault()
+     * 替换剪切板内容 e.clipboardData.setData('text/plain','不能复制')
+     *
+     * 解除禁止复制：F12控制台 删除copy事件侦听器
+     */
+    document.addEventListener('copy',(e)=>{
+        e.preventDefault(); // 禁用默认行为
+        e.clipboardData.setData('text/plain','不能复制')
+        alert('不能复制')
+    })
+</script>
+</html>
