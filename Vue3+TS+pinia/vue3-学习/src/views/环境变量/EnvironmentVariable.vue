@@ -25,6 +25,11 @@
  * 以VITE_开头自定义环境变量
  * 在 package.json 中 在dev补充 "dev":--mode development ===> "vite --mode development",
  * 生产环境会默认读取.env.production文件内容，不用配置
+ * 开发环境也会默认读取.env.development文件内容，不用配置
+ *
+ * 生产环境在打包好后无法在本地直接运行index.html，需要为他开启一个服务
+ *   安装 http-server ：npm install http-server -g
+ *   开启服务：在打包文件下（dist）执行命令 http-server -p 9002 就可以在本地查看效果
  */
 
 /**
