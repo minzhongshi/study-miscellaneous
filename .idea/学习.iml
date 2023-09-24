@@ -5,6 +5,18 @@
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/MiniVue3/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/MiniVue3/packages/compiler-core/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/MiniVue3/packages/reactivity/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/MiniVue3/packages/runtime-core/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/MiniVue3/packages/runtime-dom/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/MiniVue3/packages/vue/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/Vue3+TS+pinia/vue3-学习/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/core/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/前端学习/demo/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/微前端/monorepo/common/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/微前端/monorepo/main/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/微前端/monorepo/node_modules" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
