@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>移动端适配兼容</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><hr>
+<h1><a id="_5"></a>前言</h1>
+<p>本文用来记录移动端兼容方案</p>
+<hr>
+<ol>
+<li>当设置样式<code>overflow:scroll / auto</code>（元素内容溢出显示方式）时，IOS滑动会卡顿</li>
+</ol>
+<pre><code class="prism language-css"><span class="token property">-webkit-overflow-scrolling</span><span class="token punctuation">:</span> touch
+</code></pre>
+<ol start="2">
+<li>
+<p>在安卓环境下placeholder（input无内容提示文字属性）文字设置行高时会偏上<br>
+当input存在该属性的时候不要设置行高</p>
+</li>
+<li>
+<p>移动端字体小于12px时（安卓不支持12px以下的字体）有异常<br>
+将文字大小放大，再通过<code>transform: scale()</code>进行缩放</p>
+</li>
+<li>
+<p>ios下input按钮设置了<code>disabled</code>(是否可操作)属性为true时显示异常</p>
+</li>
+</ol>
+<pre><code class="prism language-css"><span class="token selector">input[type=button]</span><span class="token punctuation">{</span>
+  <span class="token property">opcity</span><span class="token punctuation">:</span>1
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="5">
+<li>安卓取消语音输入按钮</li>
+</ol>
+<pre><code class="prism language-css"><span class="token selector">input::-webkit-input-speech-button</span><span class="token punctuation">{</span>
+   <span class="token property">display</span><span class="token punctuation">:</span>none
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="6">
+<li>IOS取消input输入首字母默认大写</li>
+</ol>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">autocapitalize</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>off<span class="token punctuation">'</span></span> <span class="token attr-name">autocorrect</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>off<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="7">
+<li>禁用IOS和安卓选中文字<br>
+添加全局css样式：</li>
+</ol>
+<pre><code class="prism language-css"><span class="token property">wbkit-user-select</span><span class="token punctuation">:</span>none
+</code></pre>
+<ol start="8">
+<li>禁止IOS弹出各种窗口(如：需要长按保存图片时，IOS长按会弹出菜单)</li>
+</ol>
+<pre><code class="prism language-css"><span class="token property">-webkit-touch-callout</span><span class="token punctuation">:</span>none
+</code></pre>
+<ol start="9">
+<li>禁止IOS识别长串数字为电话<br>
+添加meta属性：</li>
+</ol>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">conten</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>telephone=no<span class="token punctuation">'</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>format-detection<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="10">
+<li>IOS日期格式化问题（不支持YYYY-DD-MM格式）</li>
+</ol>
+<p>将’-‘转换为’/’</p>
+<pre><code class="prism language-javascript"><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>TokenEndDate<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">-</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> “<span class="token operator">/</span>”<span class="token punctuation">)</span><span class="token punctuation">)</span> 
+</code></pre>
+<ol start="11">
+<li>input输入框在ios中光标及字体不居中（使用了line-height进行文字居中）<br>
+利用padding撑开</li>
+</ol>
+<pre><code class="prism language-css"><span class="token selector">input</span><span class="token punctuation">{</span>
+	<span class="token property">padding</span><span class="token punctuation">:</span>30rpx<span class="token punctuation">;</span>
+	<span class="token selector">&amp;::placeholder</span> <span class="token punctuation">{</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+      <span class="token property">letter-spacing</span><span class="token punctuation">:</span> 0.67px<span class="token punctuation">;</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="12">
+<li>IOS键盘弹出页面异常（position: fixed的元素在ios里，收起键盘时将页面往上顶）<br>
+监听浏览器窗口事件，发生改变，更改页面position属性</li>
+</ol>
+<pre><code class="prism language-javascript"><span class="token keyword">let</span> myFunction
+<span class="token keyword">let</span> u <span class="token operator">=</span> navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">,</span> app <span class="token operator">=</span> navigator<span class="token punctuation">.</span>appVersion<span class="token punctuation">;</span>
+<span class="token keyword">let</span> isIOS <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">!</span>u<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\(i[^;]+;( U;)? CPU.+Mac OS X</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>isIOS<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 既是微信浏览器 又是ios============（因为查到只有在微信环境下，ios手机上才会出现input失去焦点的时候页面被顶起）</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focusin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">// 软键盘弹起事件</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>myFunction<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focusout'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">// 软键盘关闭事件</span>
+	  <span class="token function">clearTimeout</span><span class="token punctuation">(</span>myFunction<span class="token punctuation">)</span>
+      myFunction <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">left</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">behavior</span><span class="token operator">:</span> <span class="token string">'smooth'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// 重点  =======当键盘收起的时候让页面回到原始位置</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="13">
+<li></li>
+</ol>
+<hr>
+<p>参考文章：<br>
+<a href="https://cloud.tencent.com/developer/article/1956836">安卓/ios兼容问题及处理（小程序/H5）</a><br>
+<a href="https://juejin.cn/post/6938219304991227912">移动端H5常见兼容问题</a></p>
+<hr>
+</div>
+</body>
+
+</html>

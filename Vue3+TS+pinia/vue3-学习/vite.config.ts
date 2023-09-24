@@ -25,6 +25,12 @@ export default ({mode}:any)=>{
       postcss:{
         plugins:[PostcssPxToViewport()]
       }
+    },
+    // 打包配置
+    esbuild:{
+      //删除console.log和debugger
+      pure:['console.log'],
+      drop:['debugger','console']
     }
   })
 

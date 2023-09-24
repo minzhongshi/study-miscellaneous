@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <input type="text" id="inp">
+</body>
+<script>
+    /**
+     * 请实现一个将表单输入框输入的数值转换为千分位，要求如下：
+     *   使用原生JS开发
+     *   输入框只输入整数数字
+     *   将数字转换为千分位
+     *   键盘输入时，需要实时转换
+     *
+     * 例子：键盘输入1000 ===> 1,000
+     *
+     */
+
+    /**
+     * toLocaleString():将数字转换成符合某个地区的字符串
+     *
+     */
+  const inp = document.getElementById('#inp')
+  let flag = false // 标识符，是否触发输入法
+
+  //监听输入事件
+  inp.addEventListener("compositionstart",function () {
+      flag = true
+  })
+  inp.addEventListener("compositionend",function () {
+      flag = false
+      formatNumber(this)
+  })
+  inp.addEventListener('input', function (){
+      if (flag)return
+     formatNumber(this)
+  })
+  function formatNumber(element) {
+      let val = element.value
+      val = val.replace(/[^\d]+/g, "")// 去除分隔符
+      val = Number(val).toLocaleString('en')
+      element.value = val
+  }
+</script>
+</html>
