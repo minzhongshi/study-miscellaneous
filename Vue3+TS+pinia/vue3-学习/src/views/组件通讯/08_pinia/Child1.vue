@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import userTodoStore from "../../../store/modules/todo.ts";
+import userTodoStore from "../../../store/modules/todo";
 
 let todoStore = userTodoStore()
 const updateTodo=()=>{

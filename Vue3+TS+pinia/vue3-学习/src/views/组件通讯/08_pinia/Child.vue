@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import userInfoStore from "../../../store/modules/info.ts";
+import userInfoStore from "../../../store/modules/info";
 
 let infoStore = userInfoStore()
 const updateCount=()=>{
