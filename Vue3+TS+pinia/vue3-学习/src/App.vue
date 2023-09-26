@@ -36,6 +36,7 @@ import HooksR from "./views/自定义Hooks/Hooks-监听元素宽高/Hooks-R.vue"
 import Postcss from "./views/postcss转换/postcss.vue";
 import H from "./views/三种编程风格/H.vue";
 import EnvironmentVariable from "./views/环境变量/EnvironmentVariable.vue";
+import {router} from "../Router";
 // 递归组件
 interface Tree {
   name: string,
@@ -124,6 +125,41 @@ const SyncVue2 = defineAsyncComponent({
 
 // 缓存组件
 const flag = ref<boolean>(true)
+// 路由
+window.addEventListener(
+    "hashchange",
+    function (e) {
+      console.log("The hash has changed!",e);
+    },
+    false,
+);
+window.addEventListener("popstate", () => {
+  let currentState = history.state;
+  console.log("currentState", currentState);
+});
+import {useRouter} from 'vue-router'
+const router = useRouter()
+
+const toPage=(url:string)=>{
+  // 字符串
+  // router.push(url)
+  // 对象形式
+  // router.push({
+  //   path:url,
+  //   // name:'A',
+  //   query:{
+  //     name:'smz',
+  //     age:18
+  //   }
+  // })
+  router.push({
+     name:'A',
+    params:{
+      id:1
+    }
+  })
+  // router.replace(url)
+}
 </script>
 
 <template>
@@ -213,7 +249,23 @@ const flag = ref<boolean>(true)
 <!--  函数式编程-->
 <!--  <H/>-->
 <!--  环境变量-->
-  <EnvironmentVariable />
+<!--  <EnvironmentVariable />-->
+<!--  路由-->
+  <p>
+    <!--使用 router-link 组件进行导航 -->
+    <!--通过传递 `to` 来指定链接 -->
+    <!--`<router-link>` 将呈现一个带有正确 `href` 属性的 `<a>` 标签-->
+    <router-link replace to="/A">Go to Router-A</router-link>
+    <br/>
+    <router-link :to="{name:'B'}">Go to Router-B</router-link>
+    <br/>
+    <router-link :to="{name:'C'}">Go to Router-C</router-link>
+    <br>
+    <button @click="toPage('/A')">跳转至A</button>
+  </p>
+  <!-- 路由出口 -->
+  <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
 </template>
 
 <style scoped>

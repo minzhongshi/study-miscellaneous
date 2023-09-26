@@ -59,6 +59,10 @@ import {Emitter, EventType} from "mitt";
 // @ts-ignore
 app.use(useResize)
 
+//vue-router
+import {router} from "../Router"
+app.use(router)
+
 
 
 app.use(ElementPlus).mount('#app')
