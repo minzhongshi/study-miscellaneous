@@ -46,7 +46,6 @@ const rules = reactive<Rules>({
     {
       required:true,
       message:'请填写密码',
-      type: 'Number',
       trigger: 'blur'
     }
   ],

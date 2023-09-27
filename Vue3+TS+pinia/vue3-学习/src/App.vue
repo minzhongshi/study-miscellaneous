@@ -36,7 +36,7 @@ import HooksR from "./views/自定义Hooks/Hooks-监听元素宽高/Hooks-R.vue"
 import Postcss from "./views/postcss转换/postcss.vue";
 import H from "./views/三种编程风格/H.vue";
 import EnvironmentVariable from "./views/环境变量/EnvironmentVariable.vue";
-import {router} from "../Router";
+
 // 递归组件
 interface Tree {
   name: string,
@@ -161,6 +161,8 @@ const toPage=(url:string)=>{
   })
   // router.replace(url)
 }
+//animate.css
+import 'animate.css'
 </script>
 
 <template>
@@ -268,7 +270,11 @@ const toPage=(url:string)=>{
 <!--  &lt;!&ndash; 路由匹配到的组件将渲染在这里 &ndash;&gt;-->
 <!--    <router-view></router-view>-->
 <!--前置守卫-->
-  <router-view></router-view>
+  <router-view v-slot="{ route,Component }">
+    <transition :enter-active-class="`animate__animated ${route.meta.transition}`">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <style scoped>

@@ -1,7 +1,7 @@
 // @ts-ignore
 // @ts-ignore
 
-import { createApp } from 'vue'
+import { createApp,render } from 'vue'
 const app = createApp(App)
 import './style.css'
 //element-plus
