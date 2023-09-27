@@ -31,6 +31,16 @@ export default ({mode}:any)=>{
       //删除console.log和debugger
       pure:['console.log'],
       drop:['debugger','console']
+    },
+    build: {
+      rollupOptions:{
+        manualChunks: {
+          vue:['vue'],
+          elementPlus:['element-plus'],
+          pinia:['pinia'],
+          vueRouter:['vue-router']
+        }
+      }
     }
   })
 

@@ -38,6 +38,45 @@ const routes:Array<RouteRecordRaw> = [
  * 7.linkExactActiveClass（可选）
  */
 export const router = createRouter({
-    history:createWebHashHistory(),
-    routes, // `routes: routes` 的缩写
+    history:createWebHashHistory(import.meta.env.BASE_URL),
+    // routes, // `routes: routes` 的缩写
+    routes:[
+        {
+            path:'/',
+            component:()=>import('@/views/路由/前置守卫/Login.vue')
+        },
+        {
+            path:'/home',
+            component:()=>import('@/views/路由/前置守卫/Home.vue')
+        }
+    ]
+})
+
+/**
+ * 全局前置守卫：router.beforeEach()
+ *    用来拦截路由跳转，在跳转前做判断有三个参数
+ *      to: 跳转到哪个路由
+ *      from: 从哪个路由跳转
+ *      next(): 执行跳转
+ *      next(false):终端导航
+ *      next('/'):跳转到不同的地址，中断当前导航，进行新的导航
+ */
+// 白名单
+const whileList = ['/']
+router.beforeEach((to,from,next)=>{
+    if (whileList.includes(to.path) || localStorage.getItem('token')){
+        next()
+    }else {
+        next('/')
+    }
+})
+
+/**
+ * 全局后置守卫：router.afterEach()
+ *    用来在路由跳转后，做的一些操作，比如加载条
+ *      to: 跳转到哪个路由
+ *      from: 从哪个路由跳转
+ */
+router.afterEach((to,from)=>{
+    
 })

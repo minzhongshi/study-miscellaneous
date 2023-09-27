@@ -138,6 +138,7 @@ window.addEventListener("popstate", () => {
   console.log("currentState", currentState);
 });
 import {useRouter} from 'vue-router'
+import Login from "./views/路由/前置守卫/Login.vue";
 const router = useRouter()
 
 const toPage=(url:string)=>{
@@ -251,21 +252,23 @@ const toPage=(url:string)=>{
 <!--  环境变量-->
 <!--  <EnvironmentVariable />-->
 <!--  路由-->
-  <p>
-    <!--使用 router-link 组件进行导航 -->
-    <!--通过传递 `to` 来指定链接 -->
-    <!--`<router-link>` 将呈现一个带有正确 `href` 属性的 `<a>` 标签-->
-    <router-link replace to="/A">Go to Router-A</router-link>
-    <br/>
-    <router-link :to="{name:'B'}">Go to Router-B</router-link>
-    <br/>
-    <router-link :to="{name:'C'}">Go to Router-C</router-link>
-    <br>
-    <button @click="toPage('/A')">跳转至A</button>
-  </p>
-  <!-- 路由出口 -->
-  <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view></router-view>
+<!--  <p>-->
+<!--    &lt;!&ndash;使用 router-link 组件进行导航 &ndash;&gt;-->
+<!--    &lt;!&ndash;通过传递 `to` 来指定链接 &ndash;&gt;-->
+<!--    &lt;!&ndash;`<router-link>` 将呈现一个带有正确 `href` 属性的 `<a>` 标签&ndash;&gt;-->
+<!--    <router-link replace to="/A">Go to Router-A</router-link>-->
+<!--    <br/>-->
+<!--    <router-link :to="{name:'B'}">Go to Router-B</router-link>-->
+<!--    <br/>-->
+<!--    <router-link :to="{name:'C'}">Go to Router-C</router-link>-->
+<!--    <br>-->
+<!--    <button @click="toPage('/A')">跳转至A</button>-->
+<!--  </p>-->
+<!--  &lt;!&ndash; 路由出口 &ndash;&gt;-->
+<!--  &lt;!&ndash; 路由匹配到的组件将渲染在这里 &ndash;&gt;-->
+<!--    <router-view></router-view>-->
+<!--前置守卫-->
+  <router-view></router-view>
 </template>
 
 <style scoped>

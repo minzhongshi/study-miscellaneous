@@ -5,101 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b14d8301-e2ae-40d9-9b32-4bf5198c4f5a" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/assets/images/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/assets/images/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/assets/images/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/directs/视口监控指令/lazyDireect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/tailwindcss.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/views/自定义指令/监听是否出现在视口指令v-lazy-ob/lazyDireect.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/tailwind.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/动画效果/滚动下拉层叠/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/动画效果/滚动下拉层叠/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/ahzbk-ux67a.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/images/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/images/card_content_default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/images/card_content_hover.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/images/card_content_last.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/images/highligt btn_xxx_highlight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/前端测试要求.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/动画特效网址.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/原型图片.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/参考特效.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试/重庆网润/服务范围01.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/.idea/monorepo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/common/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/common/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/assets/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/assets/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/assets/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/TheWelcome.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/WelcomeItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/icons/IconCommunity.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/icons/IconDocumentation.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/icons/IconEcosystem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/icons/IconSupport.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/components/icons/IconTooling.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/views/AboutView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/src/views/HomeView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/main/vite.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/monorepo与MultiRepo对比.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/pnpm-lock.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/pnpm-workspace.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/.eslintrc.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/src/main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/src/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/react-demo/vite.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/src/assets/vue.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/src/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/src/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../微前端/monorepo/web/vue-demo/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue3+TS+pinia/vue3-学习/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../core" beforeDir="false" afterPath="$PROJECT_DIR$/../core" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/宽度适应内容/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/css/宽度适应内容/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ts/协变 逆变 双向协变/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/ts/协变 逆变 双向协变/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,21 +31,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/nvm/v20.3.1/node.exe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Settings.JavaScript",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/nvm/v20.3.1/node.exe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Node.js.ES2023-数组的方法.js">
     <configuration name="ES2023-数组的方法.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/../../nvm/v20.3.1/node" nameIsGenerated="true" path-to-js-file="ES2023-数组的方法.js" working-dir="$PROJECT_DIR$/js">
       <method v="2" />
@@ -174,6 +80,7 @@
       <updated>1688403398508</updated>
       <workItem from="1688403399521" duration="7911000" />
       <workItem from="1693999619183" duration="22000" />
+      <workItem from="1695764726876" duration="9000" />
     </task>
     <servers />
   </component>

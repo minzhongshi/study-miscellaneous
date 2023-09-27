@@ -4,7 +4,9 @@
 import { createApp } from 'vue'
 const app = createApp(App)
 import './style.css'
+//element-plus
 import ElementPlus from "element-plus";
+import 'element-plus/dist/index.css'
 // @ts-ignore
 import App from './App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
@@ -62,7 +64,6 @@ app.use(useResize)
 //vue-router
 import {router} from "../Router"
 app.use(router)
-
 
 
 app.use(ElementPlus).mount('#app')
