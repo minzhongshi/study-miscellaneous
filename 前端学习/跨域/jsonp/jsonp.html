@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="text">
+
+</div>
+</body>
+<script>
+    let text = document.querySelector('#text')
+    // 动态创建script标签，添加scr请求地址拼接函数名称
+    const jsonp = (name) =>{
+        let script = document.createElement('script')
+        script.src = 'http://localhost:3000/api/jsonp?callback=' + name
+        document.body.appendChild(script)
+        return new Promise((resolve)=>{
+            window[name] = (data) =>{
+                resolve(data)
+            }
+        })
+    }
+    // 利用函数接收返回的参数
+    jsonp(`callback${new Date().getTime()}`).then(res=>{
+        text.textContent = res
+        console.log(res)
+    })
+
+    // 跨域 报错
+    fetch('http://localhost:3000/api/json').then(res=>res.json()).then(res=>{
+        console.log(res)
+    })
+</script>
+</html>

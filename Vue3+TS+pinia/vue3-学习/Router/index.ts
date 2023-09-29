@@ -1,9 +1,4 @@
 import {createRouter,createWebHashHistory,RouteRecordRaw} from 'vue-router'
-import {render,createVNode} from 'vue'
-
-import loadingBar from "../src/components/路由/后置守卫/loadingBar.vue";
-const Vnode = createVNode(loadingBar)
-render(Vnode,document.body)
 /**
  * 定义路由映射，每个组件对应一个路由映射
  * 其中路由类型为 RouteRecordRaw
@@ -130,10 +125,14 @@ export const router = createRouter({
  *    场景：权限判断
  */
 // 白名单
+import {Vnode} from "../src/components/路由/后置守卫/loadingB";
+import {render} from 'vue'
+render(Vnode,document.body)
+
 const whileList = ['/']
 router.beforeEach((to,from,next)=>{
     document.title = to.meta.title
-     Vnode.component?.extends?.startLoading()
+   Vnode.component.extends?.startLoading()
     if (whileList.includes(to.path) || localStorage.getItem('token')){
         next()
     }else {
@@ -148,7 +147,11 @@ router.beforeEach((to,from,next)=>{
  *      from: 从哪个路由跳转
  *    场景：做loadingBar
  */
-router.afterEach((to,from)=>{
-     Vnode.component?.extends?.endLoading()
+router.afterEach( (to,from)=>{
+    Vnode.component.extends?.endLoading()
+})
+
+router.beforeResolve((to)=>{
+    Vnode.component?.extends?.startLoading()
 })
 

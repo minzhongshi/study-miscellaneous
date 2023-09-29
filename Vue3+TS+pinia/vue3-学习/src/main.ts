@@ -1,7 +1,7 @@
 // @ts-ignore
 // @ts-ignore
 
-import { createApp,render } from 'vue'
+import { createApp,render,createVNode } from 'vue'
 const app = createApp(App)
 import './style.css'
 //element-plus
@@ -15,9 +15,6 @@ import sizeDireect from '../src/directs/resize指令封装/sizeDireect'
 // pinia
 import store from "./store";
 app.use(store)
-// 全局挂载组件
-// @ts-ignore
-import Card from './components/组件/全局组件/Card.vue';
 // tailwindcss
 import './tailwindcss.css'
 import lazyDireect from "./directs/视口监控指令/lazyDireect";
@@ -50,8 +47,12 @@ declare module 'vue'{
     }
 }
 
-//挂载组件
+// 全局挂载组件
+// @ts-ignore
+import Card from './components/组件/全局组件/Card.vue';
 app.component('Card',Card)
+import XScroll from './components/其他/纵向控制横向滚动.vue'
+app.component('XScroll',XScroll)
 //挂载指令，省略‘v-’前缀
 app.directive('size-ob', sizeDireect)
 app.directive('lazy-ob', lazyDireect)
@@ -67,3 +68,4 @@ app.use(router)
 
 
 app.use(ElementPlus).mount('#app')
+

@@ -15,7 +15,7 @@ import Index from "./views/组件通讯/08_pinia/index.vue";
 import SlotTest from "./views/组件通讯/09_slot/SlotTest.vue";
 import Card from "./components/组件/全局组件/Card.vue";
 import Tree from "./components/组件/递归组件/Tree.vue";
-import {defineAsyncComponent, markRaw, reactive, ref, shallowRef} from "vue";
+import {defineAsyncComponent, markRaw, reactive, ref, shallowRef,createVNode,render} from "vue";
 import A from "./components/组件/动态组件/A.vue";
 import B from "./components/组件/动态组件/B.vue";
 import C from "./components/组件/动态组件/C.vue";
@@ -163,6 +163,7 @@ const toPage=(url:string)=>{
 }
 //animate.css
 import 'animate.css'
+
 </script>
 
 <template>
@@ -270,11 +271,25 @@ import 'animate.css'
 <!--  &lt;!&ndash; 路由匹配到的组件将渲染在这里 &ndash;&gt;-->
 <!--    <router-view></router-view>-->
 <!--前置守卫-->
-  <router-view v-slot="{ route,Component }">
-    <transition :enter-active-class="`animate__animated ${route.meta.transition}`">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+<!--  <router-view v-slot="{ route,Component }">-->
+<!--    <transition :enter-active-class="`animate__animated ${route.meta.transition}`">-->
+<!--      <component :is="Component" />-->
+<!--    </transition>-->
+<!--  </router-view>-->
+<!--  横向滚动-->
+  <div style="width: 100%;height: 100vh;background-color: black">
+    <div style="height: 800px;width: 100%">
+      <XScroll>
+        <div style="display: flex">
+          <div><img src="https://fakeimg.pl/800x600/?text=1" alt=""></div>
+          <div><img src="https://fakeimg.pl/800x600/?text=2" alt=""></div>
+          <div><img src="https://fakeimg.pl/800x600/?text=3" alt=""></div>
+          <div><img src="https://fakeimg.pl/800x600/?text=4" alt=""></div>
+          <div><img src="https://fakeimg.pl/800x600/?text=5" alt=""></div>
+        </div>
+      </XScroll>
+    </div>
+  </div>
 </template>
 
 <style scoped>
