@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button id="send">发送请求</button>
+    <button id="stop">中断请求</button>
+    <div>进度条<span id="progress"></span></div>
+    <input id="file" type="file">
+</div>
+</body>
+<script>
+    /**
+     * Ajax是一组用于在Web浏览器和Web服务器之间进行异步通信的Web开发技术。
+     * 它代表着Asynchronous JavaScript and XML（异步JavaScript和XML），尽管XML并不总是作为数据格式使用。
+     * 通过Ajax，Web应用程序可以在不重新加载整个页面的情况下更新页面的部分内容。这样可以实现更加交互和响应式的用户体验。
+     * Ajax使用JavaScript发送请求到服务器并异步处理响应，而不会阻塞用户界面。
+     * 可以通过JavaScript和XNLHttpRequest对象来向服务器请求数据
+     *
+     * Ajax可以用于执行各种任务，例如从服务器检索数据、提交表单数据和动态更新内容。
+     * 它通常用于现代Web应用程序中，用于创建自动完成搜索框、实时更新和无限滚动等交互功能。
+     *
+     * 优点：
+     *    提高用户体验：通过减少页面重载和刷新，使得网站变得更加灵活和动态
+     *    减轻服务器负载：可以有效减少服务器接收到的请求次数和需要响应的数据量，从而减轻服务器负担
+     *    提高响应速度：可以异步获取数据并更新页面，从而提高响应速度
+     *    增加交互：使页面变得可交互性
+     *
+     * 缺点：
+     *    对搜索引擎优化（SEO）不友好，爬虫无法抓取Ajax中的内容与URL ===》考虑用SSR服务端渲染技术
+     *    需要考虑安全性问题，数据和网络安全需要采取对应的措施
+     *
+     *
+     * XNLHttpRequest对象
+     *     open方法：接收三个参数分别是 请求方式、请求地址、是否异步：默认为true
+     *     setRequestHeader方法:用于为请求的HTTP头设置值。setRequestHeader("header", "value")
+     *     onreadystatechange方法：监听服务端返回的数据
+     *         readyState属性：
+     *             0：未初始化，XNLHttpRequest已经创建，但未调用open方法
+     *             1：已打开，open方法已调用，send方法未调用
+     *             2：已发送，send方法已调用，服务端接收到请求
+     *             3：正在接收，服务器正在处理请求并返回数据
+     *             4：完成，服务端已完成数据传输
+     *         status属性: 200成功 400参数错误 403没有权限 401token找不到  404 未找到 500 服务器错误
+     *     send方法：给服务端发送的数据
+     *     abort方法:用于停止或放弃当前异步请求。必须在open方法后,无法恢复。
+     *     getResponseHeader方法:用于以字符串形式返回指定的HTTP头信息.getResponseHeader("headerLabel")
+     *     getAllResponseHeaders方法:用于以字符串形式返回完整的HTTP头信息。
+     *
+     *     监听进度：给xhr对象添加一个progress事件，返回event
+     *             event.loaded：当前进度
+     *             event.total：总进度
+     *         xhr.addEventListener('progress',(event)=>{
+     *             console.log(event.loaded,event.total)
+     *         })
+     *
+     *     设置超时：xhr.timeout = 3000
+     *     超时回调：监听timeout事件
+     *        xhr.addEventListener('timeout',()=>{
+     *             alert('请求超时')
+     *         })
+     *     中断回调：监听abort事件
+     *         xhr.addEventListener('abort',()=>{
+     *             console.log('请求中断')
+     *         })
+     *     监听load事件：也可以监听请求是否成功，就不用判断readyState的值
+     *         xhr.addEventListener('load',()=>{
+     *             if (xhr.status === 200){
+     *                 console.log('请求成功，触发onload')
+     *             }
+     *         })
+     *
+     *     post请求：
+     *        请求参数要放在send()中
+     */
+    let btn = document.getElementById('send')
+    let file = document.getElementById('file')
+    btn.addEventListener('click',()=>{
+        sendAjax()
+    })
+    //上传文件
+    file.addEventListener('change',()=>{
+        const formData = new FormData()
+        formData.append('file',file.files[0]) // key值对应后端 upload.single('file')
+        const xhr = new XMLHttpRequest()
+        xhr.open('post','http://localhost:3000/api/upload',true)
+        xhr.onreadystatechange = () =>{
+            console.log(xhr)
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText)
+            }
+        }
+        xhr.send(formData)
+    })
+    const sendAjax = () =>{
+        const xhr = new XMLHttpRequest()
+        // 三个参数，请求方式、请求地址、是否异步：默认为true
+        //get
+        // xhr.open('get','http://localhost:3000/api/txt?name=smz',true)
+        //post
+        xhr.open('post','http://localhost:3000/api/post',true)
+        //设置请求头
+        xhr.setRequestHeader('Content-Type','application/json')
+        //设置超时
+        xhr.timeout = 30000
+        //超时回调
+        xhr.addEventListener('timeout',()=>{
+            alert('请求超时')
+        })
+        // 监听服务端返回的数据
+        xhr.onreadystatechange = () =>{
+
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText)
+            }
+        }
+        //监听进度
+        xhr.addEventListener('progress',(event)=>{
+            const progress = document.getElementById('progress')
+            progress.innerText = `${(event.loaded/event.total*100).toFixed(2)}%`
+            console.log(event.loaded,event.total)
+            //响应头
+            console.log(xhr.getAllResponseHeaders())
+            console.log(xhr.getResponseHeader('content-type'))
+        })
+        //中断请求
+        let stop = document.getElementById('stop')
+        stop.addEventListener('click',()=>{
+            xhr.abort()
+        })
+        //监听中断
+        xhr.addEventListener('abort',()=>{
+            console.log('请求中断')
+        })
+        //监听请求成功
+        xhr.addEventListener('load',()=>{
+            if (xhr.status === 200){
+                console.log('请求成功，触发onload')
+            }
+        })
+        // 给服务端发送的数据
+        // xhr.send(null)
+        //post
+        xhr.send(JSON.stringify({name:'smz'}))
+    }
+
+</script>
+</html>
