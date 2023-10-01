@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="send">send Fetch</button>
+<button id="send2">请求超时</button>
+<div><button id="stop">中断</button></div>
+<div>进度条<span id="progress"></span></div>
+</body>
+<script>
+    /**
+     * fetch:
+     *   Fetch是一种现代的Web API，用于在浏览器中进行网络请求。
+     *   它提供了一种更简洁、灵活和强大的方式来发送HTTP请求和处理响应。
+     *  优点：
+     *    简洁易用：Fetch API提供了一种简洁的方式来发送网络请求，使用起来非常直观和易于理解。它使用了Promise和链式调用的方式，使得代码更加清晰和可读。
+     *    强大灵活：Fetch API支持发送不同类型的请求，如GET、POST、PUT、DELETE等，可以满足各种不同的需求。它还支持设置请求头、发送FormData、上传文件等功能，提供了更多的灵活性和功能性。
+     *    支持异步编程：Fetch API基于Promise，可以使用异步编程的方式处理请求和响应。这使得我们可以更好地处理异步操作，避免回调地狱和复杂的嵌套结构。
+     *    内置的错误处理：Fetch API内置了错误处理机制，可以通过.catch()方法捕获和处理请求过程中的错误。这使得我们可以更好地处理网络请求中可能出现的问题，提高了代码的健壮性和可靠性。
+     *    跨域请求支持：Fetch API支持跨域请求，可以发送跨域请求并处理响应。这对于开发跨域应用或与不同域的API进行通信非常有用。
+     *  缺点：
+     *    兼容性问题：Fetch API在一些旧版本的浏览器中可能不被完全支持。特别是在IE浏览器中，需要使用Polyfill或者其他库来提供兼容性支持。
+     *    不支持取消请求：Fetch API目前不支持取消请求的功能。一旦请求被发送出去，就无法中止或取消。这可能会导致一些问题，特别是在需要处理大量请求或需要及时取消请求的情况下。
+     *    不支持超时设置：Fetch API也不支持设置请求的超时时间。如果需要在一定时间内没有响应时取消请求，需要使用其他方式来实现，如使用AbortController和AbortSignal。
+     *    无法直接获取请求进度：Fetch API没有提供直接获取请求进度的功能。如果需要获取请求的进度信息，如上传或下载的进度，需要使用其他方式来实现，如使用XMLHttpRequest或其他库。
+     *    缺乏一些高级功能：相比于一些第三方库，Fetch API在一些高级功能方面可能有所欠缺。例如，它没有提供自动的请求重试、请求拦截、请求缓存等功能，需要自行实现或使用其他库来满足需求。
+     *
+     *  fetch使用：
+     *    就直接 fetch() 使用就行，参数二在get请求时可不传，默认get
+     *      参数1：url
+     *      参数2：对象，对象包括请求方式、头部、请求体
+     *            {
+     *                 method:'post',
+     *                 headers:{
+     *                     'Content-Type':'application/json'
+     *                 },
+     *                 body: JSON.stringify({
+     *                     name:'smz'
+     *                 })
+     *             }
+     *
+     *      1返回：
+     *          返回值是一个 promise ==> fetch的response对象,并不是结果，在这个对象里面包括了请求状态、信息、方法等。
+     *          需要指定一下后端返回数据的格式
+     *      返回格式：
+     *          text():将响应体解析为纯文本字符串并返回
+     *          json()：将响应体解析为JSON格式并返回一个JS对象
+     *          blob()：将响应体解析为二进制数据并返回一个Blob对象
+     *          arrayBuffer()：将响应体解析为二进制数据并返回一个ArrayBuffer对象
+     *          formData()：将响应体解析为FormData对象
+     *      2返回：
+     *          根据第一个返回里定义的格式，第二个返回接收数据。
+     */
+
+    /**
+     * 1.get
+     *   fetch('http://localhost:3000/api/txt').then(response=>{
+     *             console.log(response)
+     *             //指定返回的格式
+     *             return response.text()
+     *         }).then(data=>{
+     *             console.log(data)
+     *         })
+     * 2.post
+     *   请求头：
+     *      application/x-www-form-urlencoded
+     *      application/json
+     *      multipart/form-data
+     * 3.进度条
+     *     返回一个流 response.body.getReader(),获取数据总长度在响应头上有，利用循环读取流上的分片，会返回done和value
+     *     done表示是否完成，value表示当前长度，利用这些值计算出当前进度。
+     *     需要注意的是，response会被占用，需要拷贝一份返回。
+     *             // 响应头上有总长度信息
+     *             const total = response.headers.get('Content-Length')
+     *             let loaded = 0
+     *             while (true){
+     *                 const {done,value} = await reader.read()
+     *                 if (done){
+     *                     break
+     *                 }
+     *                 loaded += value.length// 当前进度
+     *                 console.log(loaded)
+     *                 const progress = document.getElementById('progress')
+     *                 progress.innerHTML = `${(loaded/total*100).toFixed(2)+ '%'}`
+     *             }
+     * 4.取消请求
+     *   我们首先创建了一个AbortController对象，并通过controller.signal获取了对应的AbortSignal对象。然后，我们将AbortSignal对象作为Fetch请求的signal选项传递给fetch函数。
+     *   当我们调用controller.abort()方法时，会触发AbortSignal对象的abort事件，从而终止Fetch请求。在请求被终止后，会进入catch块，并可以根据需要进行错误处理。
+     *   需要注意的是，终止请求后，Fetch请求的Promise会被拒绝，并且会抛出一个AbortError错误。因此，在处理错误时，可以通过判断错误类型为AbortError来区分是否是请求被终止的情况。
+     *   使用AbortController和AbortSignal可以灵活地控制和终止Fetch请求，特别适用于需要及时取消请求的场景，如用户取消操作或超时处理。
+     *
+     *   AbortController是一个控制器对象，用于创建和管理AbortSignal对象，而AbortSignal是一个信号对象，用于通知请求终止。
+     *
+     * 5.超时
+     *   超时有两种办法：
+     *     1.使用setTimeout和AbortController实现
+     *       第一计时器方法，在指定的时间内调用请求终止 controller.abort();
+     *     2.使用setTimeout和Promise.race和AbortController方法实现
+     *       定义好一个超时promise对象，利用Promise.race()方法返回 超时promise和请求promise对象第一个完成的状态，超时终止请求
+     */
+
+    const btn = document.getElementById('send')
+    const btn2 = document.getElementById('send2')
+    const stop = document.getElementById('stop')
+    // 创建AbortController对象
+    const controller = new AbortController();
+    const sendFetch= () =>{
+        const signal = controller.signal
+        fetch('http://localhost:3000/api/txt',
+            {
+                // method:'post',
+                // headers:{
+                //     'Content-Type':'application/json'
+                // },
+                // body: JSON.stringify({
+                //     name:'smz'
+                // }),
+                signal // AbortSignal对象
+            }
+        ).then(async response=>{
+            console.log(response)
+            const res = response.clone()// 拷贝一份，因为被getReader()占用
+            // 返回一个流
+            const reader = response.body.getReader()
+            // 响应头上有总长度信息
+            const total = response.headers.get('Content-Length')
+            let loaded = 0
+            while (true){
+                const {done,value} = await reader.read()
+                if (done){
+                    break
+                }
+                loaded += value.length// 当前进度
+                console.log(loaded)
+                const progress = document.getElementById('progress')
+                progress.innerHTML = `${(loaded/total*100).toFixed(2)+ '%'}`
+            }
+            //指定返回的格式
+            return res.text()
+        }).then(data=>{
+            console.log(data)
+        }).catch(error => {
+            // 处理错误
+            if (error.name === 'AbortError'){// 中断请求
+                alert('请求被终止')
+            }else {
+                console.error(error);
+            }
+        });
+    }
+
+    // 超时设置
+    // 自定义错误
+    class TimeoutError extends Error {
+        constructor(message = '请求超时') {
+            super(message)
+            this.name = 'TimeoutError'
+        }
+    }
+    // 方案一
+    function fetchWithTimeout(url, timeout) {
+        return new Promise((resolve, reject) => {
+            // 创建一个AbortController对象
+            const controller = new AbortController();
+            const signal = controller.signal;
+
+            // 设置超时定时器
+            const timeoutId = setTimeout(() => {
+                // 请求中断
+                controller.abort();
+                reject(new TimeoutError());
+            }, timeout);
+            fetch(url, { signal })
+                .then(response => {
+                    clearTimeout(timeoutId); // 清除超时定时器
+                    resolve(response);
+                })
+                .catch(error => {
+                    clearTimeout(timeoutId); // 清除超时定时器
+                    reject(error);
+                });
+        });
+    }
+
+    // 方案二
+    function fetchWithTimeout2(url, timeout) {
+        const fetchPromise = fetch(url);
+        const timeoutPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // 超时
+                reject(new TimeoutError());
+            }, timeout);
+        });
+// 使用Promise.race方法，同时等待fetchPromise和timeoutPromise
+        return Promise.race([fetchPromise, timeoutPromise]);
+    }
+    const overtime = ()=>{
+        // fetchWithTimeout('http://localhost:3000/api/txt', 300)
+        fetchWithTimeout2('http://localhost:3000/api/txt', 300)
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                if (error.name === 'TimeoutError'){
+                    alert('请求超时，请重试')
+                }else {
+                    console.error(error);
+                }
+            });
+    }
+
+    btn.addEventListener('click',sendFetch)
+    btn2.addEventListener('click',overtime)
+    stop.addEventListener('click',()=>{
+        // 终止请求
+        controller.abort();
+    })
+</script>
+</html>
