@@ -4,7 +4,135 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .box{
+        height: 100vh;
+        width: 100%;
+        background: #1B1A22;
+    }
+    #message{
+        color: white;
+    }
+    #animate{
+        display: inline-block;
+        padding:0 5px;
+        font-size:20px;
+        font-weight: bold;
+        animation: fade 1s infinite forwards;
+    }
+    @keyframes fade {
+        from{
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
 <body>
-
+<div>
+    <div class="box">
+        <div id="message"><span id="animate">|</span></div>
+        <div style="margin-top: 30px"><button id="stop">断开连接</button></div>
+    </div>
+</div>
 </body>
+<script>
+    /**
+     * SSE（Server-Sent Events，服务器推送事件）是一种用于在浏览器和服务器之间实现实时、单向通信的Web技术。它允许服务器向客户端推送数据，而无需客户端发起请求。与传统的HTTP请求-响应模式不同，SSE建立了一种持久的连接，通过这个连接，服务器可以随时向客户端发送更新的数据。这种实时通信的方式非常适用于需要实时更新数据的应用，如聊天应用、股票行情、实时监控等。
+     *
+     * SSE的工作原理如下：
+     * 客户端通过创建一个EventSource对象来与服务器建立连接。
+     * 服务器通过发送特定格式的事件流（event stream）数据，将数据推送给客户端。
+     * 客户端通过监听EventSource对象的事件，如message事件，来接收服务器发送的数据。
+     * 服务器可以根据需要发送不同类型的事件，如message事件、open事件、error事件等。
+     *
+     * SSE的特点包括：
+     * 简单易用：SSE使用简单的API，只需要创建EventSource对象并监听事件即可实现实时通信。
+     * 单向通信：SSE是一种单向通信方式，只允许服务器向客户端推送数据，而不支持客户端向服务器发送请求。
+     * 实时性：SSE建立了持久连接，服务器可以随时向客户端发送更新的数据，实现实时的数据推送。
+     * 自动重连：如果连接中断，SSE会自动尝试重新建立连接，确保持久连接的稳定性。
+     * 支持事件流：SSE使用事件流（event stream）的格式来传输数据，可以发送不同类型的事件，方便客户端进行处理。
+     * 需要注意的是，SSE在一些旧版本的浏览器中可能不被完全支持。但是，大多数现代浏览器都支持SSE，并且可以通过Polyfill来提供兼容性支持。总的来说，SSE是一种简单、实时的通信技术，适用于需要实时推送数据的应用场景，提供了一种有效的方式来实现服务器向客户端的实时通信。
+     *
+     * SSE技术实现：
+     * SSE基于HTTP协议，利用其长连接特性，通过浏览器向服务器发送一个HTTP请求，建立一条持久化连接
+     *
+     * SSE应用场景：
+     * 实时数据大屏（这种不需要客户端做操作的，只需要服务端将数据不断给客户端，并且需要长时间连接，并不一定需要WebSocket）
+     * chatGPT 返回数据
+     *
+     * 注意事项：
+     * SSE是服务端主动向客户端发送数据，在客户端发送连接数据连接后，客户端就不能再向服务端发送数据了，只能服务端给客户端发送数据，这是因为SSE是单工通讯的。
+     * 只接受get请求
+     * 服务端没有设置正确的响应头信息，可能导致无法接收数据
+     */
+
+    /**
+     * EventSource
+     * EventSource是HTML5中的一个API，用于在客户端与服务器之间建立基于HTTP的单向通信。
+     *
+     * 使用步骤：
+     * 创建EventSource对象：
+     *       在客户端的JavaScript代码中，使用new EventSource(url，options)来创建一个EventSource对象.
+     *       其中url是服务器端的URL,必填。
+     *       options是配置项可选参数Object类型，常用配置包括：
+     *             withCredentials:Boolean类型，标识是否允许发送Coolie和HTTP认证信息。默认false
+     *             headers:Object类型，标识发送的请求头信息。
+     *             retryInterval:Number类型，标识与服务器失去连接后，重连时间间隔。默认1秒
+     * 监听事件：
+     *       通过为EventSource对象添加事件监听器，如onmessage、onopen、onerror等，来处理服务器发送的事件。
+     *            onmessage：表示已经收到服务端数据。
+     *            onopen：表示已经建立了连接，并开始接收服务端数据。当后端没有定义返回的事件，默认是该事件。
+     *            onerror：表示建立连接或接收数据时发生错误。
+     * 接收事件：
+     *       当服务器发送事件流数据时，EventSource对象会触发相应的事件，客户端可以通过事件监听器来接收和处理这些事件。
+     * 关闭连接：
+     *       如果不再需要与服务器保持连接，可以调用EventSource对象的close()方法来关闭连接。
+     */
+
+    /**
+     * 后端
+     * 将普通get请求变为SSE请求
+     *    设置请求头： 'Content-Type': 'text/event-stream'
+     * 设置返回事件名称
+     *    res.write(`event:dg\n`) 这里前端就必须监听dg这个事件才能获取数据
+     */
+
+    const message = document.getElementById('message')
+    const stop = document.getElementById('stop')
+    // function print(str) {
+    //     message.innerHTML = str + '<span class="animate">|</span>'
+    // }
+
+    document.addEventListener('keydown',(e)=>{
+        if (e.keyCode == 13){
+            const sse = new EventSource('http://localhost:3000/api/sse',{
+                withCredentials:false,
+                headers:{},
+                retryInterval: 1000
+            })
+            sse.onopen = (e) =>{
+                console.log('连接成功', e)
+            }
+            sse.onmessage = (e) =>{
+                console.log('接收到数据', e)
+            }
+            sse.onerror= (e) =>{
+                console.log('发生错误',e)
+            }
+            sse.addEventListener('message',(e)=>{
+                const span = document.getElementById('animate')
+                span.remove()
+                message.innerHTML += `${e.data}<span id="animate">|</span>`
+            })
+            stop.addEventListener('click',(e)=>{
+                console.log('断开连接',e)
+                sse.close()
+            })
+
+        }
+    })
+
+</script>
 </html>

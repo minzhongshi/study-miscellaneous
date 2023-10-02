@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 const express = require('express')
 const app = express()
 const multer = require('multer')
@@ -50,6 +52,30 @@ app.post('/api/upload',upload.single('file'),(req,res)=>{
     res.json({
         code:200
     })
+})
+
+//SSE
+app.get('/api/sse',(req,res)=>{
+    res.writeHead(200,{
+        'Content-Type': 'text/event-stream',
+        'Access-Control-Allow-Origin': '*'
+    })
+    // 读取本地文件
+    const txt =  fs.readFileSync('../SSE/index.txt','utf8')
+    // 分割成字符数组
+    const arr = txt.split('')
+    let currnet = 0
+    let timer = setInterval(()=>{
+        if (currnet < arr.length){
+            // 设置返回事件名称
+            // res.write(`event:dg\n`)
+            res.write(`data:${arr[currnet]}\n\n`)
+            currnet++
+        }else{
+            clearTimeout(timer)
+        }
+    },300)
+
 })
 
 app.listen(3000,()=>{
