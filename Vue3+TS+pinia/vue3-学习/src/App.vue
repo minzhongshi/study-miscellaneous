@@ -163,6 +163,7 @@ const toPage=(url:string)=>{
 }
 //animate.css
 import 'animate.css'
+import PictureToning from "./components/其他/图片调色盘/pictureToning.vue";
 
 </script>
 
@@ -277,19 +278,21 @@ import 'animate.css'
 <!--    </transition>-->
 <!--  </router-view>-->
 <!--  横向滚动-->
-  <div style="width: 100%;height: 100vh;background-color: black">
-    <div style="height: 800px;width: 100%">
-      <XScroll>
-        <div style="display: flex">
-          <div><img src="https://fakeimg.pl/800x600/?text=1" alt=""></div>
-          <div><img src="https://fakeimg.pl/800x600/?text=2" alt=""></div>
-          <div><img src="https://fakeimg.pl/800x600/?text=3" alt=""></div>
-          <div><img src="https://fakeimg.pl/800x600/?text=4" alt=""></div>
-          <div><img src="https://fakeimg.pl/800x600/?text=5" alt=""></div>
-        </div>
-      </XScroll>
-    </div>
-  </div>
+<!--  <div style="width: 100%;height: 100vh;background-color: black">-->
+<!--    <div style="height: 800px;width: 100%">-->
+<!--      <XScroll>-->
+<!--        <div style="display: flex">-->
+<!--          <div><img src="https://fakeimg.pl/800x600/?text=1" alt=""></div>-->
+<!--          <div><img src="https://fakeimg.pl/800x600/?text=2" alt=""></div>-->
+<!--          <div><img src="https://fakeimg.pl/800x600/?text=3" alt=""></div>-->
+<!--          <div><img src="https://fakeimg.pl/800x600/?text=4" alt=""></div>-->
+<!--          <div><img src="https://fakeimg.pl/800x600/?text=5" alt=""></div>-->
+<!--        </div>-->
+<!--      </XScroll>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  图片调色盘-->
+  <picture-toning/>
 </template>
 
 <style scoped>

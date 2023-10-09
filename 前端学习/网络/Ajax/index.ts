@@ -78,6 +78,12 @@ app.get('/api/sse',(req,res)=>{
 
 })
 
+// navigator.sendBeacon
+app.post('/api/b',(req,res)=>{
+    console.log(req.body)
+    res.send('ok')
+})
+
 app.listen(3000,()=>{
     console.log('server is running')
 })

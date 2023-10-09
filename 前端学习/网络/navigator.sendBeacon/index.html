@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="send">发送</button>
+</body>
+<script>
+  /**
+   * navigator.sendBeacon 是一个浏览器 API，用于在浏览器后台发送异步请求,不会等服务端响应。
+   * 它可以用于在页面卸载或关闭时发送数据，以及在不阻塞页面卸载的情况下发送数据。
+   * 使用 navigator.sendBeacon 方法发送的请求是异步的，不会阻塞页面的卸载或关闭过程。
+   * 这对于需要在用户离开页面之前发送数据的情况非常有用，
+   *
+   * 优点：
+   *    不受页面卸载过程的影响，确保数据可靠发送
+   *    异步执行，不阻塞页面关闭或者跳转
+   *    能够发送跨域请求
+   *
+   * 缺点：
+   *    只能发送POST请求
+   *    只能传输少量数据（64 KB以内）
+   *    无法自定义请求头
+   *    只能传输ArrayBuffer、ArrayBufferView、Blob、DOMString、FormData或URLSearchParams类型数据
+   *    如果处于危险网络环境、开启了广告屏蔽插件 该请求将无效
+   *
+   * 应用场景：
+   *    发送心跳包
+   *    埋点
+   *    用户反馈
+   *    日志
+   *
+   *
+   */
+  const send = document.getElementById('send')
+  let json = JSON.stringify({name:"smz"})
+  let blob = new Blob([json],{type:'application/json'})
+  send.addEventListener('click',()=>{
+      navigator.sendBeacon('http://localhost:3000/api/b',blob)
+  })
+</script>
+</html>
