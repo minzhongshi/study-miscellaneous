@@ -4,6 +4,12 @@ const express = require('express')
 const app = express()
 const multer = require('multer')
 
+// 设置CORS头
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     next();
+// });
+
 const single = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, './upload')
@@ -39,6 +45,7 @@ app.post('/api/post',(req,res)=>{
         }
     })
 })
+
 app.options('/api/*', (req,res) => {
     res.setHeader("Access-Control-Allow-Origin","*")
     res.setHeader("Access-Control-Allow-Headers", "*");
@@ -78,12 +85,3 @@ app.get('/api/sse',(req,res)=>{
 
 })
 
-// navigator.sendBeacon
-app.post('/api/b',(req,res)=>{
-    console.log(req.body)
-    res.send('ok')
-})
-
-app.listen(3000,()=>{
-    console.log('server is running')
-})

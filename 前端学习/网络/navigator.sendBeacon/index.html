@@ -35,10 +35,22 @@
    *
    */
   const send = document.getElementById('send')
-  let json = JSON.stringify({name:"smz"})
-  let blob = new Blob([json],{type:'application/json'})
+  let data = {name:"smz"}
+  let blob = new Blob([JSON.stringify(data)],{type:'application/json; charset=UTF-8'})
   send.addEventListener('click',()=>{
-      navigator.sendBeacon('http://localhost:3000/api/b',blob)
+      console.log()
+      navigator.sendBeacon('http://localhost:3001/api/b',blob)
   })
+
+  // 心跳包
+  function sendHeartbeat() {
+      const data = 'heartbeat'; // 心跳包数据
+      const url = 'http://localhost:3001/api/heartbeat'; // 心跳包目标 URL
+      navigator.sendBeacon(url, data);
+  }
+  // 每隔一定时间发送心跳包
+  // setInterval(sendHeartbeat, 5000); // 每 5 秒发送一次心跳包
+
 </script>
+<script src="reportData.js"></script>
 </html>
