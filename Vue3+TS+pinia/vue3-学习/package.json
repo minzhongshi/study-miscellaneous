@@ -14,6 +14,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "animate.css": "^4.1.1",
     "axios": "^1.5.1",
+    "colorthief": "^2.4.0",
     "coms": "^1.0.2",
     "element-plus": "^2.3.8",
     "gsap": "^3.12.2",
