@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  /**
+   * 获取当前网络状态以及对应事件
+   *    navigator.onLine ===> true:在线  false:离线
+   *
+   *    监听 online 和 offline 事件可以监听设备在线与离线
+   *
+   *     window.addEventListener('online',function () {
+   *     console.log('online')
+   *   })
+   *
+   *   window.addEventListener('offline',function () {
+   *     console.log('offline')
+   *   })
+   *
+   *
+   *
+   * 区分强网和弱网环境
+   *   navigator.connection ===> 返回 NetworkInformation 包含网络速度等信息
+   *       downlink:0.35  ===> 当前网络连接估计下行速度
+   *       effectiveType:"2g"  ===> 当前网络连接估计速度类型(slow-2g、2g、3g、4g)
+   *       onchange:null  ===> 网络转换监听事件
+   *       rtt:1900  ===> 网络连接往返时间
+   *       saveData:false  ===> 是否处于数据节省模式
+   *
+   *   监听网络速度
+   *     navigator.connection.addEventListener('change',()=>{
+   *     console.log(navigator.connection.effectiveType)
+   *     if (navigator.connection.effectiveType === '2g' || navigator.connection.effectiveType === 'slow-2g'){
+   *       alert('当前网络状态不佳')
+   *     }
+   *   })
+   */
+
+  // 是否在线
+  console.log(navigator.onLine)
+  // 联网监听
+  window.addEventListener('online',function () {
+    console.log('online')
+  })
+  // 断网监听
+  window.addEventListener('offline',function () {
+    console.log('offline')
+  })
+
+  // 当前网络状态
+  console.log(navigator.connection)
+  // 添加onchange事件
+  navigator.connection.addEventListener('change',()=>{
+    console.log(navigator.connection.effectiveType)
+    if (navigator.connection.effectiveType === '2g' || navigator.connection.effectiveType === 'slow-2g'){
+      alert('当前网络状态不佳')
+    }
+  })
+</script>
+</html>

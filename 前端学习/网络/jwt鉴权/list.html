@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="list">
+    <ul></ul>
+</div>
+</body>
+<script>
+    const list = document.querySelector('ul')
+    fetch('http://localhost:3000/api/list',{
+        headers:{
+            //Bearer 不一定要加，但是这是个规范
+            // 'Authorization':`Bearer ${localStorage.getItem('token')}`
+            'Authorization':`${localStorage.getItem('token')}`
+        }
+    }).then(res=>res.json()).then(res=>{
+        console.log(res)
+        for (let i =0;i<res.list.length;i++){
+            let li = document.createElement('li')
+            li.innerText = res.list[i].title
+            list.appendChild(li)
+        }
+    })
+</script>
+</html>
