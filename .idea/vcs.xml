@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MiniVue3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/node-learning" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/充电站" vcs="Git" />
   </component>
 </project>
