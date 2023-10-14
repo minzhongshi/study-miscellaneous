@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+  /**
+   * 以问询的方式设计信号灯，计时器不准确，不建议使用
+   */
+  import {TrafficLight} from "./TrafficLight.js";
+  const trafficLight = new TrafficLight({
+    red:3,
+    yellow:2,
+    green:5,
+    initial:'red'
+  })
+  function raf() {
+    requestAnimationFrame(()=>{
+      raf()
+      const current = trafficLight.getCurrentList()
+      console.log(current.color, current.time)
+    })
+  }
+  raf()
+</script>
+</html>
