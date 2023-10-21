@@ -1,3 +1,15 @@
+/**
+ * createChunk - 文件切片函数
+ *
+ * @description: 创建文件切片
+ * @param {File} file 文件
+ * @param {Number} index 切片索引
+ * @param {Number} chunkSize 切片大小
+ * @return {Promise} Promise对象
+ * @example
+ *
+ */
+
 import SparkMD5 from './spark-md5.js'
 export function createChunk(file, index, chunkSize) {
     return new Promise((resolve)=>{

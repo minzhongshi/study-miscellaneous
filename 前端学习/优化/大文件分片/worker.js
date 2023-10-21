@@ -1,3 +1,7 @@
+/**
+ * 线程函数
+ */
+
 import {createChunk} from "./createChunk.js";
 
 onmessage = async (e)=>{

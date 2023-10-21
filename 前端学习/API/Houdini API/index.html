@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background: #000;
+    }
+    @property --direc{
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+    .card{
+        --direc: 0deg;
+        width: 300px;
+        height: 600px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #000;
+        margin: 100px auto;
+        background:linear-gradient(var(--direc), #5ddcff, #3c67e3 43%, #4e00c2);
+        animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            --direc: 360deg;
+        }
+    }
+</style>
+<body>
+<div class="card">
+
+</div>
+</body>
+<script>
+    /**
+     * Houdini API 用于自定义CSS(部分正式支持) JS(实验支持)
+     * 1. CSS：CSS Paint API
+     * 2. JS：CSS Typed OM API
+     * 3. 用途：自定义CSS属性
+     * 4. 兼容性：Chrome 66+ Firefox 63+
+     * 5. 参考：https://developer.mozilla.org/zh-CN/docs/Web/API/Houdini
+     * 6. 实例：https://developer.mozilla.org/zh-CN/docs/Web/API/Houdini/Examples
+     */
+</script>
+</html>

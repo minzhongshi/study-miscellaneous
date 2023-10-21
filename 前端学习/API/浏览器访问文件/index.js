@@ -1,4 +1,9 @@
-// File API
+/**
+ * File API - 浏览器访问文件
+ *
+ *
+ **/
+
 // 高亮显示代码 highlight.js
 const btn = document.querySelector('button')
 const div = document.querySelector('div')

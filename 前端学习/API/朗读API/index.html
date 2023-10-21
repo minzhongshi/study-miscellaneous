@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="ipt">
+<button id="btn">朗读</button>
+</body>
+<script>
+  const btn = document.querySelector('#btn')
+  const ipt = document.querySelector('#ipt')
+  btn.onclick = function () {
+    const val = ipt.value
+    const ssa = new SpeechSynthesisUtterance(val)
+    ssa.rate = 1 // 语速
+    ssa.pitch = 1 // 音调
+    ssa.lang = 'zh-CN' // 语言
+    ssa.volume = 1 // 音量
+    window.speechSynthesis.speak(ssa)
+  }
+</script>
+</html>
