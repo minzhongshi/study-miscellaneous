@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+<button target-key="btn">上报</button>
+<script src="dist/index.js"></script>
+<script>
+    const tra = new SmzTracker({
+        requestUrl: 'http://localhost:9000/tracker',
+        historyTracker: true,
+        domTracker: true,
+        jsError: true,
+    })
+    // tra.setUserId('smz111')
+    // tra.setExtra({
+    //     name: 'smz',
+    //     age: 18,
+    // })
+    // tra.sendTracker({
+    //     type: 'page',
+    //     page: 'index',
+    //     title: '首页',
+    //     url: 'http://localhost:9000/index.html',
+    //     referrer: 'http://localhost:9000/index.html',
+    //     time: new Date().getTime(),
+    //     screen: {
+    //         width: window.screen.width,
+    //         height: window.screen.height,
+    //     },
+    //     browser: {
+    //         name: 'chrome',
+    //         version: '1.0.0',
+    //     },
+    //     os: {
+    //         name: 'windows',
+    //         version: '1.0.0',
+    //     },
+    //     network: {
+    //         type: 'wifi',
+    //         effectiveType: '4g',
+    //     }
+    // })
+</script>
+</body>
+
+</html>
