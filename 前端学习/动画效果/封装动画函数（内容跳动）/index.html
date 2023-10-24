@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>价格：4599元</label>
+<button class="btn">打折</button>
+</body>
+<script src="animation.js"></script>
+<script>
+    const label = document.querySelector('label');
+    const btn = document.querySelector('.btn');
+
+    btn.addEventListener('click', () => {
+        animation(1000, 0, 3999, 0, (value) => {
+            label.innerHTML = `价格：${parseInt(value)}元`;
+        });
+    });
+</script>
+</html>
