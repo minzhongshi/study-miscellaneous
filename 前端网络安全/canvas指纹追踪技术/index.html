@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  /**
+   * canvas指纹追踪技术
+   * canvas指纹追踪技术是通过浏览器的canvas元素来获取用户的指纹信息，从而达到追踪用户的目的
+   * 用canvas指纹追踪技术原理:
+   *     canvas在绘制图像时，会将图像的像素信息存储在canvas的缓冲区中，而这些像素信息是可以通过toDataURL()方法来获取的
+   *     而通过toDataURL()方法获取Base码中的信息包含 设备 + 操作系统 + 浏览器 这些消息 一旦获取到这些信息，就可以通过这些信息来追踪用户，
+   *     相似度高就认定是同一个用户
+   */
+  const uuid = () =>{
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const txt = 'canvas'
+    ctx.fillText(txt,10,10)
+    console.log(canvas.toDataURL())
+  }
+  uuid()
+</script>
+</html>

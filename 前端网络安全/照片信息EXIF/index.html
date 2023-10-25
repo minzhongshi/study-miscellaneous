@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <img width="300" height="300" id="img1" src="./img1.jpg" alt="">
+  <span>原图:</span>
+    <span id="span1"></span>
+</div>
+<div>
+  <img width="300" height="300" id="img2" src="./img2.jpg" alt="">
+  <span>非原图</span>
+    <span id="span2"></span>
+</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/exif-js/2.3.0/exif.js"></script>
+<script>
+  /**
+   * 照片信息EXIF
+   * 在我们拍摄的照片中，储存了一些照片的元信息，比如拍摄时间、拍摄地点、拍摄设备等等，这些信息就是照片的EXIF信息
+   * EXIF信息是储存在照片的二进制数据中的，所以我们可以通过读取照片的二进制数据来获取照片的EXIF信息
+   * 浏览器环境可以通过EXIF.js来获取照片的EXIF信息
+   * 注：前提图片必须是原图，如果是压缩过的图片，EXIF信息就会丢失
+   *
+   *
+   * EXIF方法：
+   * EXIF.getData(img, callback)  获取图像的数据EXIF信息
+   * EXIF.getTag(img, tag)  获取图片的某个EXIF信息
+   * EXIF.getAllTags(img)  获取图片的所有EXIF信息
+   * EXIF.pretty(img)  获取图片的所有EXIF信息，并以字符串的形式返回
+   * EXIF.readFromBinaryFile(file)  读取图片的二进制数据，并返回EXIF信息
+   *
+   */
+    const img1 = document.querySelector('#img1');
+  const img2 = document.querySelector('#img2');
+    const span1 = document.querySelector('#span1');
+    const span2 = document.querySelector('#span2');
+  img1.onload = ()=>{
+    EXIF.getData(img1, function() {
+        span1.innerHTML = EXIF.pretty(this);
+      console.log(EXIF.getAllTags(this));
+    });
+  }
+    img2.onload = ()=>{
+        EXIF.getData(img2, function() {
+            span2.innerHTML = EXIF.pretty(this);
+        console.log(EXIF.getAllTags(this));
+        });
+    }
+</script>
+</html>

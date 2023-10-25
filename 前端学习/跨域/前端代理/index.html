@@ -13,11 +13,14 @@
     let text = document.querySelector('#text')
 
     // 跨域 报错
-    fetch('http://localhost:3000/api/json').then(res=>res.json()).then(res=>{
+    // fetch('http://localhost:3000/api/json').then(res=>res.json()).then(res=>{
+    //     console.log(res)
+    // })
+    // // vite、webpack代理转发请求
+    fetch('/api/json').then(res=>res.json()).then(res=>{
         console.log(res)
     })
-    // vite、webpack代理转发请求
-    fetch('/api/json').then(res=>res.json()).then(res=>{
+    fetch('/erp-shelve-api/shelve/vase/allSysAttr').then(res=>res.json()).then(res=>{
         console.log(res)
     })
 </script>
