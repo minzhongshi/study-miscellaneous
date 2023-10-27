@@ -12,6 +12,16 @@
     div p{
         margin: 1em;
         color: blue;
+        animation: xxx 3s;
+    }
+    @keyframes xxx {
+        from {
+            transform: translateX(0%);
+        }
+
+        to {
+            transform: translateX(100%);
+        }
     }
 </style>
 <body>
@@ -31,6 +41,12 @@
     let style = getComputedStyle(elem1, null);
 
     let style2 = document.defaultView.getComputedStyle(elem1, null);
+
+    elem1.style.width = '100px'
+    elem1.style.height = '100px'
+    elem1.style.padding = '100px'
+
+    elem1.clientHeight
 </script>
 </body>
 </html>
