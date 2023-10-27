@@ -21,5 +21,21 @@
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
-
+    const assembly = (arr1,arr2) =>{
+        if (arr1.length === 0)return arr2
+        if (arr2.length === 0)return arr1
+        const result = []
+        for (let i=0;i<arr1.length;i++){
+            for (let j = 0;j<arr2.length;j++){
+                result.push(arr1[i] + arr2[j])
+            }
+        }
+        return result
+    }
+    const map = ['','','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+    return digits.split('')
+        .map(it => map[it])
+        .reduce((r, it) =>
+                assembly(r, it.split(''))
+            , [])
 };
