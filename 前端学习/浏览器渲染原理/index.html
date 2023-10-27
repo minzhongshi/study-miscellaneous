@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body h1{
+        color: red;
+        font-size: 3em;
+    }
+    div p{
+        margin: 1em;
+        color: blue;
+    }
+</style>
+<body>
+<h1>HTML解析</h1>
+<div id="box">
+    <p>HTML解析</p>
+</div>
+
+<div>
+    <p>a</p>
+    b
+    <p>c</p>
+</div>
+<script>
+    console.log('HTML解析')
+    let elem1 = document.getElementById("box");
+    let style = getComputedStyle(elem1, null);
+
+    let style2 = document.defaultView.getComputedStyle(elem1, null);
+</script>
+</body>
+</html>
