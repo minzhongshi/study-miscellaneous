@@ -1,0 +1,28 @@
+html body{
+    background-color: #1a1a1a;
+    text-align: center;
+    color: #666;
+}
+audio{
+    width: 450px;
+    margin: 30px 0;
+}
+.container{
+    height: 420px;
+    overflow: hidden;
+}
+
+.container ul {
+    /*transition 只能对数值有效果，对于display:none;无效*/
+    transition: 0.6s;
+    list-style: none;
+}
+.container li{
+    height: 30px;
+    line-height: 30px;
+    transition: 0.2s;
+}
+.container li.active{
+    color: #fff;
+    transform: scale(1.2);
+}
