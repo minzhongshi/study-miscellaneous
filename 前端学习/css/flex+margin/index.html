@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+.box{
+    width: 80vw;
+    margin: auto;
+}
+.betweenTwoParties{
+    background: #D7D7D7;
+    width: 100%;
+    height: 50vh;
+    margin: 20px auto;
+    display: flex
+}
+.navigation{
+    background: #D7D7D7;
+    width: 100%;
+    height: 150px;
+    margin: 20px auto;
+    align-items: center;
+    display: flex;
+}
+.navigation2{
+    background: #D7D7D7;
+    width: 100%;
+    margin: 20px auto;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.navigation2 div{
+    --n:7;
+--rest:calc(100% - var(--n) * 100px);
+margin: 10px calc(var(--rest) / (var(--n) * 2));
+}
+</style>
+<body>
+<div class="box">
+    <div class="betweenTwoParties">
+<!--        弹性盒中，给子项设置margin: auto;可以使子项在弹性盒中居中,因为会让子项占用掉剩余空间-->
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;margin: auto"></div>
+    </div>
+    <div class="navigation">
+<!--        弹性盒，可以利用某一边margin,实现向某一边移动，如: margin-left: auto;可以使子项向右移动-->
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;margin-left: auto"></div>
+    </div>
+
+    <div class="navigation">
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;margin-left: auto"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+    </div>
+
+    <div class="navigation">
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;margin:0 auto"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+    </div>
+
+    <div class="navigation2">
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: blueviolet;border: #1B1A22 2px solid"></div>
+        <div style="width: 100px;height: 100px;background: red;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: pink;border: #1B1A22 2px solid;"></div>
+        <div style="width: 100px;height: 100px;background: greenyellow;border: #1B1A22 2px solid;"></div>
+    </div>
+
+
+</div>
+</body>
+</html>

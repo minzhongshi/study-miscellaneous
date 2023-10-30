@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .container{
+    width: 600px;
+    height: 600px;
+    background: black;
+    margin:0 auto;
+
+  }
+.box{
+    width: 100%;
+    height: 100%;
+  display: block;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: 0.5s;
+}
+.container:hover .box{
+  clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+}
+</style>
+<body>
+<div class="container">
+  <img src="https://fakeimg.pl/600x600/?text=1" alt="" class="box">
+</div>
+</body>
+</html>

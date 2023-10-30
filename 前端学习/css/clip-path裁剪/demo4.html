@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+.container{
+    width: 600px;
+    height: 600px;
+  margin: 0 auto;
+  position:relative;
+}
+.box{
+    width: 100%;
+    height: 100%;
+  position: absolute;
+    z-index:1;
+}
+.box2{
+  width: 100%;
+  height: 100%;
+    position: absolute;
+  z-index:2;
+    transition: all 1s;
+    clip-path: polygon(-20% 0%, -15% 0%, 0% 50%, -15% 100%, -20% 100%);
+}
+.container:hover .box2{
+    transition: all 1s;
+    clip-path: polygon(0% 0%, 100% 0%, 110% 50%, 100% 100%, 0% 100%);
+}
+</style>
+<body>
+<div class="container">
+    <img src="https://fastly.picsum.photos/id/451/1600/900.jpg?hmac=RgOFoBm49iJfxXbtM1X73shfqTWoiAd3nUZaD1KulUA" alt="" class="box">
+  <img src="https://fastly.picsum.photos/id/559/1600/900.jpg?hmac=TIhS69uUhHdAqeAtIRDiMKQb3jjHbI50FruzPFIRWYM" alt="" class="box2">
+</div>
+</body>
+</html>

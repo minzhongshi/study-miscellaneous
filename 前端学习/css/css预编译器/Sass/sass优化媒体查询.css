@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/**
+    * sass优化媒体查询
+    基本知识：
+    可以使用混合来简化代码===>@mixin
+    使用：@include，可以传入参数，还可以传入独立属性在@minxin中使用@content调用
+
+    变量：
+    $变量名: 值;
+    判断类型：type-of($变量名) ===> number、string、color、list、map
+
+    sass对象结构：
+    $map: (
+      key1: value1,
+      key2: value2,
+      key3: value3
+    )
+    取值：map-get($map, key1) ===> value1
+    数组取值：nth($array, index) ===> value1
+
+ */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .header {
+    flex-direction: column;
+  }
+}
+@media (min-width: 481) and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=sass%E4%BC%98%E5%8C%96%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2.css.map */

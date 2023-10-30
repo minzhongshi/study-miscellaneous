@@ -1,0 +1,63 @@
+/**
+    * sass优化媒体查询
+    基本知识：
+    可以使用混合来简化代码===>@mixin
+    使用：@include，可以传入参数，还可以传入独立属性在@minxin中使用@content调用
+
+    变量：
+    $变量名: 值;
+    判断类型：type-of($变量名) ===> number、string、color、list、map
+
+    sass对象结构：
+    $map: (
+      key1: value1,
+      key2: value2,
+      key3: value3
+    )
+    取值：map-get($map, key1) ===> value1
+    数组取值：nth($array, index) ===> value1
+
+ */
+
+@mixin flex($layout){
+  display: flex;
+  justify-content: $layout;
+  align-items: $layout;
+  @content
+}
+
+$breakpoints: (
+  'phone': (320px,480px),
+  'tablet': (481,768px),
+  'desktop': (769px,1024px),
+  'large-desktop': (1025px,1200px),
+  'extra-large-desktop': (1201px,Infinity)
+);
+
+@mixin media($namespace){
+  $bp: map-get($breakpoints, $namespace);
+  $min: nth($bp, 1);
+  $max: nth($bp, 2);
+  @media (min-width: $min) and (max-width: $max){
+    @content
+  }
+}
+
+.nav {
+  @include flex(center){
+    gap: 10px;
+  }
+}
+
+.header {
+  width: 100%;
+  @include flex(center){
+    gap: 20px;
+  }
+  @include media('phone'){
+    flex-direction: column;
+  }
+  @include media('tablet'){
+    flex-direction: column;
+  }
+}

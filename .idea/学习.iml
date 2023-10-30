@@ -18,6 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/微前端/monorepo/main/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/微前端/monorepo/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/埋点SDK/smz-tracker/src/core" />
+      <excludeFolder url="file://$MODULE_DIR$/chromium" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

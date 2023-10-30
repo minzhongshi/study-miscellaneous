@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .container{
+    width: 600px;
+    height: 600px;
+    background: black;
+    margin:0 auto;
+
+  }
+  .box{
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: wink 3s infinite;
+  }
+  @keyframes wink {
+    15% {
+      clip-path: ellipse(50% 1% at 50% 50%);
+    }
+    30% {
+      clip-path: ellipse(50% 19% at 50% 50%);
+    }
+    45% {
+      clip-path: ellipse(50% 1% at 50% 50%);
+    }
+    70% {
+      clip-path: ellipse(50% 40% at 50% 50%);
+    }
+  }
+</style>
+<body>
+<div class="container">
+  <img src="https://fakeimg.pl/600x600/?text=1" alt="" class="box">
+</div>
+</body>
+</html>
