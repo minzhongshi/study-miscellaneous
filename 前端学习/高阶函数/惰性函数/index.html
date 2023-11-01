@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1></h1>
+<button>复制文本</button>
+<br>
+<input type="text">
+</body>
+<script src="index.js"></script>
+<script>
+    let btn = document.querySelector('button');
+    let input = document.querySelector('input');
+    let h1 = document.querySelector('h1');
+    // h1随机生成字母 + 数字
+    function randomString(n) {
+        let str = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let tmp = '';
+        for (let i = 0; i < n; i++) {
+            tmp += str.charAt(Math.floor(Math.random() * str.length));
+        }
+        return tmp;
+    }
+    h1.innerText = randomString(10);
+    btn.addEventListener('click', function () {
+         copyText(h1.innerText);
+         // copyText2(h1.innerText);
+        btn.innerText = '复制成功';
+    })
+</script>
+</html>
