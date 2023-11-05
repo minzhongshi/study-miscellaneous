@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<style>
+    .bfc1{
+        background-color: green;
+    }
+    .bfc2{
+        background-color: pink;
+        /*float: left;*/
+        /*overflow: hidden;*/
+    }
+    /*.bfc2:after{*/
+    /*    content: '';*/
+    /*    display: block;*/
+    /*    clear: both;*/
+    /*}*/
+    .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
 
+    .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        float: left;
+    }
+</style>
+<body>
+<div class="bfc1">
+    <div class="box1"></div>
+</div>
+<div class="bfc2">
+    <div class="box2"></div>
+</div>
 </body>
 <script>
     /**
