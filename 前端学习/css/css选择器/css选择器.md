@@ -155,4 +155,9 @@
   - 媒体相关属性
         page-break-before、page-break-after、page-break-inside、orphans、widows
 
-
+## 2.属性值的计算
+ >特殊的css取值
+- inherit
+  继承父元素的属性值
+- initial
+  使用浏览器默认的属性值
