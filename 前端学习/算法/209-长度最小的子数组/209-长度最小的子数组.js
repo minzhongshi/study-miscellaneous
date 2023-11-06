@@ -24,3 +24,24 @@
  * 输入：target = 11, nums = [1,1,1,1,1,1,1,1]
  * 输出：0
  */
+
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSubArrayLen = function(target, nums) {
+    let left = 0
+    let right = 0
+    let min = Infinity
+    let sum = 0
+    for(right;right<nums.length;right++){
+        sum += nums[right]
+        while(sum>=target){
+            min = Math.min(min,right - left + 1)
+            sum-=nums[left]
+            left++
+        }
+    }
+    return min | 0
+};
