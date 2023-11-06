@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 前置知识：
+     *   如果定义一个计时器任务，点击另一个页面，此时游览器会做一个优化，会将计时器时间延长至1s执行
+     */
+    /**
+     * Page Visibility
+     *  包含了一个事件和一个属性
+     *    事件：visibilitychange：页面可见度变化时触发
+     *    属性：hidden：true===>可见 false===>失活
+     */
+    // 兼容性,IE和老版本谷歌浏览器
+    let eventName,propName;
+    if (typeof document.hidden !== 'undefined'){
+        eventName = 'visibilitychange'
+        propName = 'hidden'
+    }else if (typeof document.msHidden !=='undefined'){
+        eventName = 'msvisibilitychange'
+        propName = 'msHidden'
+    }else if (typeof document.webkitHidden !=='undefined'){
+        eventName = 'webketvisibilitychange'
+        propName = 'webketHidden'
+    }
+    document.addEventListener(eventName,()=>{
+        if (document[propName]){
+            console.log('失活')
+        }else{
+            console.log('可见')
+        }
+    })
+</script>
+</html>
