@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box"></div>
+</body>
+<script>
+  navigator.clipboard.readText().then(function (value) {
+      document.querySelector('.box').innerHTML = value;
+      console.log(value);
+  },function () {
+      alert('读取失败')
+  })
+</script>
+</html>

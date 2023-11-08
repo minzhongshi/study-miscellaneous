@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>这是文本</p>
+</body>
+<script>
+    document.addEventListener('copy',function (e) {
+        e.preventDefault();// 阻止默认复制事件
+        navigator.clipboard.writeText('禁止复制');// 写入剪切板
+        alert('禁止复制');
+    })
+</script>
+</html>

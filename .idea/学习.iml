@@ -21,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/chromium" />
       <excludeFolder url="file://$MODULE_DIR$/MiniVue3" />
       <excludeFolder url="file://$MODULE_DIR$/core" />
+      <excludeFolder url="file://$MODULE_DIR$/vue3" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

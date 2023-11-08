@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="editor" contenteditable></div>
+</body>
+<script>
+  const editor = document.querySelector('.editor');
+  editor.addEventListener('paste',function (e) {
+    if (e.clipboardData.files.length > 0) {
+        e.preventDefault();
+        const file = e.clipboardData.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            const img = document.createElement('img');
+            img.src = reader.result;
+            editor.appendChild(img);
+        }
+
+    }
+  })
+</script>
+</html>

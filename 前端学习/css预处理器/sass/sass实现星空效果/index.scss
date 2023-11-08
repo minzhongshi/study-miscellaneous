@@ -1,0 +1,77 @@
+html {
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+}
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -200px;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    h1 {
+        font-size: 50px;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: 'Exo 2', sans-serif;
+        padding: 0;
+        margin: 0;
+        letter-spacing: 5px;
+        font-weight: 900;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        animation: animate 4s linear infinite;
+        @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+            animation-delay: $i * 0.4s;
+        }
+        }
+    }
+}
+
+//unquote()函数用于将字符串转换为不带引号的字符串,random()函数用于生成随机数
+//#用于拼接
+@function getShadows($n){
+  $shadows: '#{random(100)}vw #{random(100)}vh #fff';
+  @for $i from 2 through $n {
+    $shadows: '#{$shadows}, #{random(100)}vw #{random(100)}vh #fff';
+  }
+  @return unquote($shadows)
+}
+
+$duration:400s;// 动画持续时间
+$count:1000; // 星星数量
+
+@for$i from 1 through 5 {
+  $duration: floor($duration / 2); // 随着层数增加，动画持续时间减少
+  $count: floor($count / 2); // 随着层数增加，星星数量减少
+  .layer#{$i}{ // 生成层
+    position: fixed;
+    $size: #{$i}px;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    box-shadow: getShadows($count);
+    animation: moveup $duration linear infinite;
+    &::after{ // 在元素之后添加父元素相同的伪元素，让元素在动画结束底部不是空白的，也防止页面抖动
+      content: '';
+      position: fixed;
+      width: inherit;
+      height: inherit;
+      left: 0;
+      top:100vh;
+      border-radius: inherit;
+      box-shadow: inherit;
+    }
+  }
+}
+
+@keyframes moveup {
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+
+
