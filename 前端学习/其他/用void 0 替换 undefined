@@ -1,0 +1,2 @@
+由于历史原因，undefind是window的一个只读属性，但是你可以定义变量名为undefind的变量，这样就会导致undefind的值被修改，
+所以在判断一个变量是否为undefind时，最好使用void 0来代替undefind，因为void 0永远返回undefind
