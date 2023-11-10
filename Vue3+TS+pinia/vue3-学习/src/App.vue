@@ -36,6 +36,7 @@ import HooksR from "./views/自定义Hooks/Hooks-监听元素宽高/Hooks-R.vue"
 import Postcss from "./views/postcss转换/postcss.vue";
 import H from "./views/三种编程风格/H.vue";
 import EnvironmentVariable from "./views/环境变量/EnvironmentVariable.vue";
+import Forms from "./views/二次封装ElementPlus/form.vue";
 
 // 递归组件
 interface Tree {
@@ -292,7 +293,9 @@ import PictureToning from "./components/其他/图片调色盘/pictureToning.vue
 <!--    </div>-->
 <!--  </div>-->
 <!--  图片调色盘-->
-  <picture-toning/>
+<!--  <picture-toning/>-->
+<!--  二次封装elementPlus-->
+  <Forms/>
 </template>
 
 <style scoped>
