@@ -1,0 +1,11 @@
+.waterfall{
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+}
+.waterfall img{
+    position: absolute;
+    width: 220px;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
