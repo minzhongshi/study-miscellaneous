@@ -3,8 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            /*overflow: hidden;*/
+        }
+        .scroll-container{
+            height: 100vh;
+            position: relative;
+        }
+        .scroll-up{
+
+        }
+        .scroll-down{
+
+        }
+        .item{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .prev{
+            top:0;
+            height: 0;
+        }
+        .cur{
+            height: 103%;
+            width: 100%;
+            transform: translateY(-3%);
+        }
+        .next{
+            top:100vh;
+            height: 0;
+        }
+    </style>
 </head>
 <body>
-
+<div class="scroll-container"></div>
 </body>
+<script>
+    let windowHeight = window.innerHeight;
+    let windowWidth = window.innerWidth;
+    const imgs = [
+        `https://picsum.photos/seed/picsum/${windowWidth}/${windowHeight}`,
+        `https://picsum.photos/seed/scenery/${windowWidth}/${windowHeight}`,
+        `https://picsum.photos/seed/figure/${windowWidth}/${windowHeight}`,
+        `https://picsum.photos/seed/unit/${windowWidth}/${windowHeight}`,
+        `https://picsum.photos/seed/river/${windowWidth}/${windowHeight}`,
+    ]
+    const container = document.querySelector('.scroll-container');
+    let curIndex = 0;// 当前索引
+    // 获取上一个索引
+    function getPrevIndex() {
+        return curIndex === 0 ? imgs.length - 1 : curIndex - 1;
+    }
+    // 获取下一个索引
+    function getNextIndex() {
+        return curIndex === imgs.length - 1 ? 0 : curIndex + 1;
+    }
+    // 创建元素
+    function createElement(i) {
+        const div = document.createElement('div');
+        div.className = 'item';
+        const img = document.createElement('img');
+        img.src = imgs[i]
+        div.appendChild(img);
+        container.appendChild(div);
+        return div;
+    }
+    // 重置元素
+    function resetElements() {
+        container.innerHTML = '';
+        const prevIndex = getPrevIndex()
+        const nextIndex = getNextIndex()
+        createElement(prevIndex).classList.add('prev');
+        createElement(curIndex).classList.add('cur');
+        createElement(nextIndex).classList.add('next');
+    }
+    resetElements()
+
+    let isAnimating = false;
+    window.addEventListener('wheel', (e) => {
+        if (e.deltaY === 0  || isAnimating) return;
+        isAnimating = true;
+        if (e.deltaY > 0) {
+            // 向下滚动
+            curIndex = getNextIndex();
+            container.classList.add('scroll-down');
+        } else {
+            // 向上滚动
+            curIndex = getPrevIndex();
+            container.classList.add('scroll-up');
+        }
+        resetElements();
+    })
+
+    container.addEventListener('transitionend', () => {
+        container.classList.remove('scroll-down');
+        container.classList.remove('scroll-up');
+        resetElements()
+    })
+</script>
 </html>

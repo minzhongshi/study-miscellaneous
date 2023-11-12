@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="music-item">
+    <button>1</button>
+</div>
+<div class="music-item">
+    <button>2</button>
+</div>
+<div class="music-item">
+    <button>3</button>
+</div>
+<div class="music-item">
+    <button>4</button>
+</div>
+</body>
+<script>
+    const channel = new BroadcastChannel('music');
+    const btns = document.querySelectorAll('button');
+    for (const btn of btns) {
+        btn.addEventListener('click', () => {
+            const n = +localStorage.getItem('music') || 0;
+            if (n){
+                channel.postMessage(btn.innerHTML);
+            }else {
+                window.open('./index2.html?n='+btn.innerHTML, '_blank');
+            }
+        });
+    }
+</script>
+</html>
