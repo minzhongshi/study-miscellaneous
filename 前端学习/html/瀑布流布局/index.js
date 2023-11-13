@@ -21,7 +21,8 @@ function creatImg() {
     let oFrag = document.createDocumentFragment();
     for (let i = 0;i<30;i++){
         let img = document.createElement('img');
-        img.src = `https://picsum.photos/id/${i}/220/${Math.floor(Math.random() * 301 + 100)}`;
+        img.src = `https://picsum.photos/id/1${i}/220/${Math.floor(Math.random() * 301 + 100)}`;
+        img.style.display = 'none'
         oFrag.appendChild(img);
     }
     waterfalls.appendChild(oFrag);
@@ -53,6 +54,7 @@ function render() {
         let {left,top,index} = layout(gap);
         imgArr[i].style.left = left + 'px';
         imgArr[i].style.top = top + 'px';
+        imgArr[i].style.display = 'block';
         columnsHeight[index] += imgArr[i].offsetHeight + gap/2;
     }
     let {min} = getMinIndex(columnsHeight);

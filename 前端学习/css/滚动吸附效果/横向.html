@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+.container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  overflow-x: scroll;
+    /*滚动吸附类型  参数一：方向 参数二：吸附类型 （mandatory：不能有中间状态  proximity:达到附近才吸附）*/
+  scroll-snap-type: x mandatory;
+  background: #eee;
+}
+.container::-webkit-scrollbar {
+  width: 0;
+}
+.item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    text-align: center;
+    line-height: inherit;
+  font-size: 3em;
+  /*吸附对齐方式 center: 居中  start:靠近起始位置  end:靠近结束位置*/
+  scroll-snap-align: center;
+    /*是否停止中间状态*/
+  scroll-snap-stop: always;
+}
+.item:nth-child(1){
+  background: #00ff6f;
+}
+.item:nth-child(2){
+  background: #f5bd50;
+}
+.item:nth-child(3){
+  background: #ff4f4f;
+}
+</style>
+<body>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+</body>
+</html>

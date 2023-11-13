@@ -165,6 +165,7 @@ const toPage=(url:string)=>{
 //animate.css
 import 'animate.css'
 import PictureToning from "./components/其他/图片调色盘/pictureToning.vue";
+import TopicSwitch from "./components/主题切换/TopicSwitch.vue";
 
 </script>
 
@@ -295,7 +296,9 @@ import PictureToning from "./components/其他/图片调色盘/pictureToning.vue
 <!--  图片调色盘-->
 <!--  <picture-toning/>-->
 <!--  二次封装elementPlus-->
-  <Forms/>
+<!--  <Forms/>-->
+<!--  主题切换-->
+  <TopicSwitch />
 </template>
 
 <style scoped>

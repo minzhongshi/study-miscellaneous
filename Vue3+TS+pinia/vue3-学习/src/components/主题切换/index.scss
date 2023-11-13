@@ -1,0 +1,40 @@
+$themes:(
+    light: (
+    bgColor: linear-gradient(#CEF5E0, #FBD481),
+    textColor: #000,
+    ),
+    dark: (
+        bgColor: linear-gradient(#121A1E, #28495C),
+        textColor: #fff,
+    ),
+);
+
+//全局变量，主题
+$curTheme: 'light';
+// 切换主题
+@mixin useTheme(){
+  @each $key, $value in $themes {
+    $curTheme: $key !global;
+    html[data-theme= '#{$key}'] & {
+      // 传入的样式
+      @content
+    }
+  }
+}
+
+// 获取主题变量,并返回某个样式的值
+@function getVal($paramName) {
+  $themeMap: map-get($themes, $curTheme);
+  @return map-get($themeMap, $paramName)
+}
+
+// 使用
+//.item {
+//  width: 100px;
+//  height: 100px;
+//  @include useTheme() {
+//    background-color: getVal(bgColor);
+//    color: getVal(textColor);
+//    border-color: getVal(textColor);
+//  }
+//}

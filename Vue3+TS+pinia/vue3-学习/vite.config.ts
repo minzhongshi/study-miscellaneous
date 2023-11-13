@@ -19,7 +19,8 @@ export default ({mode}:any)=>{
       // 预处理器
       preprocessorOptions: {
         scss:{
-          additionalData: `@import"./src/views/BEM架构与layout布局/index.scss";`
+          // 布局          // 主题切换
+          additionalData: `@import"./src/views/BEM架构与layout布局/index.scss";@import"./src/components/主题切换/index.scss";`
         }
       },
       postcss:{
