@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .ball {
+        --delay:0s;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        margin-bottom: 50px;
+        /*pause: 暂停状态*/
+        animation: move 1s var(--delay) linear forwards paused;
+    }
+    @keyframes move {
+        50% {
+            transform:translateX(100px) scale(1.5);
+        }
+        100% {
+            transform: translateX(200px);
+        }
+    }
+</style>
+<body>
+<div class="container">
+    <div class="ball"></div>
+    <input type="range" value="0" min="0" max="1" step="0.01">
+</div>
+</body>
+<script>
+    /**
+     * 利用动画暂停时，时间轴的控制来控制动画的进行
+     * 利用延迟动画的方式来控制动画的进行 ===> 动画延迟执行，当延迟时间逐步变长时，动画暂停的初始位置也会变长，达到控制动画的执行。
+     */
+    let ball = document.querySelector('.ball');
+    let range = document.querySelector('input');
+    range.oninput = function () {
+        ball.style.setProperty('--delay', `-${this.value}s`);
+    }
+</script>
+</html>

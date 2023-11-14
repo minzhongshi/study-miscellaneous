@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .container{
+    --delay:0s;
+    --color1: #5F1418;
+    --color2: red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    animation:  move 1s var(--delay) linear forwards paused;
+  }
+  @keyframes move {
+    0% {
+      --color1: #5F1418;
+      --color2: red;
+    }
+    25.1%{
+      --color1: red;
+      --color2: #FFD151;
+    }
+    50%{
+      --color1: #FFD151;
+      --color2: #FFD151;
+    }
+    50.1% {
+      --color1: #FFD151;
+      --color2: #3EE91B;
+    }
+    100% {
+      --color1: #3EE91B;
+      --color2: green;
+    }
+  }
+  .box{
+    width: 80px;
+    height: 80px;
+    background-image: linear-gradient(135deg,var(--color1),var(--color2));
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .eye{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    background: #fff;
+    top:30%;
+    left:50%;
+    border-radius: 50%;
+    margin-left: -10%;
+  }
+  .eye.left {
+    transform: translateX(-90%);
+    clip-path: polygon(0 75%, 100% 0, 100% 100%, 0 100%);
+    animation: leftEyeChange 1s var(--delay) linear forwards paused;
+  }
+  .eye.right {
+    transform: translateX(90%);
+    clip-path: polygon(0 0, 100% 70%, 100% 100%, 0 100%);
+    animation: rightEyeChange 1s var(--delay) linear forwards paused;
+  }
+  @keyframes leftEyeChange {
+    0% {
+      clip-path: polygon(0 75%, 100% 0, 100% 100%, 0 100%);
+    }
+    50%,
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  @keyframes rightEyeChange {
+    0% {
+      clip-path: polygon(0 0, 100% 70%, 100% 100%, 0 100%);
+    }
+    50%,
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  .mouse{
+    position: absolute;
+    --w:32px;
+    --h:32px;
+    width: var(--w);
+    height: var(--h);
+    top:66px;
+    left: 30%;
+    border-radius: var(--w);
+    box-shadow: inset 0 2px 0 #fff;
+    animation: mousechange 1s var(--delay) linear forwards paused;
+    transform: translateY(calc(var(--h) / -2));
+  }
+  @keyframes mousechange {
+    50% {
+      height: 4px;
+      box-shadow: inset 0 4px 0 #fff;
+      transform: translateY(calc(var(--h) / -3));
+      clip-path: inset(0% 0% 0% 0%);
+    }
+    50.1%{
+      height: 4px;
+      box-shadow: inset 0 4px 0 #fff;
+      transform: translateY(calc(var(--h) / -3));
+      clip-path: inset(50% 0% 0% 0%);
+    }
+    to {
+        height: var(--h);
+        box-shadow: inset 0 -50px 0 #fff;
+        transform: translateY(calc(var(--h) / -1));
+        clip-path: inset(50% 0% 0% 0%);
+    }
+  }
+</style>
+<body>
+<div class="container">
+  <div class="box">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouse"></div>
+  </div>
+  <input type="range" value="0" min="0" max="1" step="0.01">
+</div>
+</body>
+<script>
+  /**
+   * 利用动画暂停时，时间轴的控制来控制动画的进行
+   * 利用延迟动画的方式来控制动画的进行 ===> 动画延迟执行，当延迟时间逐步变长时，动画暂停的初始位置也会变长，达到控制动画的执行。
+   */
+  let inp = document.querySelector('input');
+  let container = document.querySelector('.container');
+  function call() {
+    container.style.setProperty('--delay', `-${this.value}s`);
+  }
+  inp.oninput = call;
+  call()
+</script>
+</html>
