@@ -1,0 +1,37 @@
+body{
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  box-sizing: border-box;
+  background: #0f0f0f;
+}
+
+$words : 'Hello', 'World', 'I', 'am', 'Sass', 'CSS', 'Animation', 'Text', 'Replace', 'Effect',
+'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4','5', '6', '7', '8', '9', '0', '!', '@',
+'#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '[', ']', '{', '}', '|', '\\', ':',
+';', '"', '\'', '<', '>', ',', '.', '?', '/', '`', '~', '你', '好', '世', '界', '我', '是', 'Sass',
+'CSS', '动', '画', '文', '字', '替', '换', '效', '果', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+'J','K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S','T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2',
+'3', '4','5', '6', '7', '8', '9', '0', '!', '@','#', '$', '%', '^', '&', '*', '(', ')', '-',
+'_', '+', '=', '[', ']', '{', '}', '|', '\\', ':',';', '"', '\'', '<', '>', ',', '.', '?',
+'/', '`', '~', '你', '好', '世', '界', '我', '是', 'Sass','CSS', '动', '画', '文', '字', '替', '换';
+
+$max: 1920px;
+h1::after{
+  content: 'A';
+  color: white;
+  text-shadow: 1px 1px 4px #333;
+  text-transform: uppercase;
+  @each $word in $words{
+    @media screen and (max-width: $max){
+      content: $word;
+    }
+    $max: $max - 10px;
+  }
+
+}
+
+
