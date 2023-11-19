@@ -30,7 +30,7 @@ provide(TOKEN,cars)
 
 <template>
   <div class="box">
-    <h1>PRovide与Inject</h1>
+    <h1>Provide与Inject</h1>
     <p v-for="item of cars">{{item.car}}</p>
     <hr>
    <Child/>
