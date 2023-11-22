@@ -1,0 +1,9 @@
+$minWidth: 1024px;
+@media screen and (max-width: $minWidth) {
+    $basic:1236/1024px;
+    @import "basic.scss";
+}
+@media screen and (min-width: $minWidth){
+    $basic: 1236/100vw;
+    @import "basic.scss";
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 95%;
+            height: 100%;
+            margin:0 auto;
+        }
+        .container div[data-index = "0"]{
+            color: #FFFFFF;
+            background: #0E8ADB;
+            z-index: 1;
+        }
+        .container div[data-index = "0"]::before{
+            content: "";
+            width: 5%;
+            background: #0E8ADB;
+            z-index: 1;
+        }
+        .container div[data-index = "1"]{
+            color: #FFFFFF;
+            background: #0E8ADB;
+            z-index: 1;
+        }
+        .container div[data-index = "1"]::before{
+            content: "";
+            width: 5%;
+            background: #0E8ADB;
+            z-index: 1;
+        }
+        .container div:nth-child(1){
+            position: sticky;
+            top: 0;
+        }
+        .container div:nth-child(2){
+            position: sticky;
+            top: 90px;
+        }
+        .btn {
+            width: 100px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            cursor: pointer;
+            user-select: none;
+            letter-spacing: 1rem;
+            text-indent: 1rem;
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        .twinkle {
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #2c3e50;
+            color: #2c3e50;
+            transition: background-color .2s;
+        }
+        .twinkle::before {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 200%;
+            background-color: rgba(255, 255, 255, .6);
+            transform: skew(45deg) translate3d(-200px,0,0);
+        }
+
+        .twinkle:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .twinkle:hover::before {
+            transition: ease-in-out .5s;
+            transform: skew(45deg) translate3d(300px,0,0);
+        }
+        @media print {
+            .btn{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+</div>
+<div class="btn twinkle">打印</div>
+</body>
+<script type="module"  src="index.js"></script>
+<script>
+    /**
+     * Step1. 将自己简历里的字段结构化为一个 json 文件
+     * Step2. 参考下图，我们对简历显示规则字段做以下约定：
+     * "[1|1|1]"：表示一行显示3个字段，以 1:1:1 的形式显示；
+     * "[2|1]"：表示一行显示2个字段，以 2:1 的形式显示；
+     * "-"： 表示一行显示1个字段，等价于[1]。
+     * 请按照以上规则，自定义你的简历显示规则。例如："-[1|1|1]---"。
+     * Step3. 写一个函数，接受 Step2 设定的规则字符串和 Step1 的 json 为条件:
+     * function generPaper(layoutStr, json){}
+     * 生成简历页面，样式自行决定。（也可传入控制显示字段顺序的相关信息）
+     */
+    const btn = document.querySelector('.btn')
+    btn.addEventListener("click",()=>{
+        window.print()
+    })
+</script>
+
+</html>
