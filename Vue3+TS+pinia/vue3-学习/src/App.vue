@@ -166,6 +166,7 @@ const toPage=(url:string)=>{
 import 'animate.css'
 import PictureToning from "./components/其他/图片调色盘/pictureToning.vue";
 import TopicSwitch from "./components/主题切换/TopicSwitch.vue";
+import Slidein from "./views/自定义指令/元素平滑上升/slidein.vue";
 
 </script>
 
@@ -298,7 +299,9 @@ import TopicSwitch from "./components/主题切换/TopicSwitch.vue";
 <!--  二次封装elementPlus-->
 <!--  <Forms/>-->
 <!--  主题切换-->
-  <TopicSwitch />
+<!--  <TopicSwitch />-->
+<!--  元素平滑上升-->
+  <Slidein/>
 </template>
 
 <style scoped>

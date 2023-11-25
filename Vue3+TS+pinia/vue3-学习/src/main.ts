@@ -10,14 +10,13 @@ import 'element-plus/dist/index.css'
 // @ts-ignore
 import App from './App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-// @ts-ignore
-import sizeDireect from '../src/directs/resize指令封装/sizeDireect'
+
 // pinia
 import store from "./store";
 app.use(store)
 // tailwindcss
 import './tailwindcss.css'
-import lazyDireect from "./directs/视口监控指令/lazyDireect";
+
 
 
 // 循环挂载Icon图标
@@ -54,8 +53,13 @@ app.component('Card',Card)
 import XScroll from './components/其他/纵向控制横向滚动.vue'
 app.component('XScroll',XScroll)
 //挂载指令，省略‘v-’前缀
+// @ts-ignore
+import sizeDireect from '../src/directs/resize指令封装/sizeDireect'
+import lazyDireect from "./directs/视口监控指令/lazyDireect";
+import slidein from "./directs/元素平滑上升/vSlidein";
 app.directive('size-ob', sizeDireect)
 app.directive('lazy-ob', lazyDireect)
+app.directive('slide-in', slidein)
 // 自定义Hooks + 自定义指令
 import useResize from "../src/hooks/useResize";
 import {Emitter, EventType} from "mitt";

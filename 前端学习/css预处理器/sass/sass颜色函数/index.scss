@@ -1,0 +1,33 @@
+$btnColor: #409eff, #67c23a, #e6a23c, #f56c6c, #909399;
+@function btnColor($type) {
+  @return nth($btnColor, $type);
+}
+@mixin btn($type) {
+  $color: btnColor($type);
+  background: $color;
+  color: #fff;
+  &:hover {
+    background: lighten($color, 10%); // 亮度增加10%
+  }
+  &:active {
+        background: darken($color, 10%); // 亮度减少10%
+  }
+  &:disabled {
+    background: lighten($color, 20%); // 亮度增加20%
+    color: white;
+  }
+}
+.btn {
+  &.primary {
+    @include btn(1);
+  }
+  &.success {
+    @include btn(2);
+  }
+  &.warning {
+    @include btn(3);
+  }
+  &.danger {
+    @include btn(4);
+  }
+}

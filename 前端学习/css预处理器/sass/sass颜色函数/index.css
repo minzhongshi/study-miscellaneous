@@ -1,0 +1,58 @@
+.btn.primary {
+  background: #409eff;
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #73b8ff;
+}
+.btn.primary:active {
+  background: #0d84ff;
+}
+.btn.primary:disabled {
+  background: #a6d2ff;
+  color: white;
+}
+.btn.success {
+  background: #67c23a;
+  color: #fff;
+}
+.btn.success:hover {
+  background: #85cf60;
+}
+.btn.success:active {
+  background: #529b2e;
+}
+.btn.success:disabled {
+  background: #a3db87;
+  color: white;
+}
+.btn.warning {
+  background: #e6a23c;
+  color: #fff;
+}
+.btn.warning:hover {
+  background: #ecb869;
+}
+.btn.warning:active {
+  background: #d48a1b;
+}
+.btn.warning:disabled {
+  background: #f2cd96;
+  color: white;
+}
+.btn.danger {
+  background: #f56c6c;
+  color: #fff;
+}
+.btn.danger:hover {
+  background: #f89c9c;
+}
+.btn.danger:active {
+  background: #f23c3c;
+}
+.btn.danger:disabled {
+  background: #fbcccc;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */
