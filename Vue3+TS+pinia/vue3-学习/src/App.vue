@@ -167,7 +167,14 @@ import 'animate.css'
 import PictureToning from "./components/其他/图片调色盘/pictureToning.vue";
 import TopicSwitch from "./components/主题切换/TopicSwitch.vue";
 import Slidein from "./views/自定义指令/元素平滑上升/slidein.vue";
+import showMsg from "./components/组件/命令式组件/showMsg.jsx";
 
+const clickHandler = ()=>{
+  showMsg('我是弹窗',(close)=>{
+    console.log('我是弹窗回调')
+    close()
+  })
+}
 </script>
 
 <template>
@@ -301,7 +308,11 @@ import Slidein from "./views/自定义指令/元素平滑上升/slidein.vue";
 <!--  主题切换-->
 <!--  <TopicSwitch />-->
 <!--  元素平滑上升-->
-  <Slidein/>
+<!--  <Slidein/>-->
+<!--  指令式组件-->
+  <div>
+    <el-button @click="clickHandler" type="primary">打开弹窗</el-button>
+  </div>
 </template>
 
 <style scoped>

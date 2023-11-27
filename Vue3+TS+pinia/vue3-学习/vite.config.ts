@@ -2,12 +2,16 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import {PostcssPxToViewport} from "./plugins/postcss=px-to-viewport";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitejs.dev/config/
 export default ({mode}:any)=>{
   console.log(loadEnv(mode,process.cwd()))
   return defineConfig({
-    plugins: [vue()],
+    plugins: [
+        vue(),
+        vueJsx(),
+    ],
     // 别名配置
     resolve: {
       alias: {
