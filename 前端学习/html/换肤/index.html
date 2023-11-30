@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .toggle{
+      left: 20px;
+      bottom:50px;
+      color: #fff;
+      padding: 5px 16px;
+      position: absolute;
+      border-radius: 8px;
+      line-height: 1.4;
+      cursor: pointer;
+      border-color: transparent;
+      background: #409eff;
+    }
+    .dark{
+      background: #000;
+      color: #fff;
+    }
+    ::view-transition-old(*){
+      animation: none;
+      mix-blend-mode: normal;
+    }
+    ::view-transition-new(*){
+      animation: effects 1s ease-in;
+      mix-blend-mode: normal;  /* normal: 正常模式 multiply: 正片叠底模式 screen: 滤色模式 overlay: 叠加模式 darken: 变暗模式 lighten: 变亮模式 color-dodge: 颜色减淡模式 color-burn: 颜色加深模式 hard-light: 强光模式 soft-light: 柔光模式 difference: 差值模式 exclusion: 排除模式 hue: 色相模式 saturation: 饱和度模式 color: 颜色模式 luminosity: 明度模式*/
+    }
+    @keyframes effects {
+      from {
+        clip-path: circle(0% at var(--x) var(--y))
+      }
+      to {
+        clip-path: circle(100% at var(--x) var(--y))
+      }
+    }
+  </style>
+</head>
+<body>
+<button class="toggle">换肤</button>
+</body>
+<script>
+  let toggle = document.querySelector('.toggle')
+  toggle.addEventListener('click',(event)=>{
+    document.documentElement.style.setProperty('--x',event.clientX + 'px')
+    document.documentElement.style.setProperty('--y',event.clientY + 'px')
+    if (document.startViewTransition){
+      document.startViewTransition(()=>{
+        document.documentElement.classList.toggle('dark')
+      })
+    }else {
+      document.documentElement.classList.toggle('dark')
+    }
+  })
+</script>
+</html>
