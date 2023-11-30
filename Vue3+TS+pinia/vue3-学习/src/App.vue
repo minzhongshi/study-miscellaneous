@@ -168,6 +168,7 @@ import PictureToning from "./components/其他/图片调色盘/pictureToning.vue
 import TopicSwitch from "./components/主题切换/TopicSwitch.vue";
 import Slidein from "./views/自定义指令/元素平滑上升/slidein.vue";
 import showMsg from "./components/组件/命令式组件/showMsg.jsx";
+import FormPage from "./views/其它/动态表单/FormPage.vue";
 
 const clickHandler = ()=>{
   showMsg('我是弹窗',(close)=>{
@@ -310,9 +311,11 @@ const clickHandler = ()=>{
 <!--  元素平滑上升-->
 <!--  <Slidein/>-->
 <!--  指令式组件-->
-  <div>
-    <el-button @click="clickHandler" type="primary">打开弹窗</el-button>
-  </div>
+<!--  <div>-->
+<!--    <el-button @click="clickHandler" type="primary">打开弹窗</el-button>-->
+<!--  </div>-->
+<!--  动态表单-->
+  <FormPage/>
 </template>
 
 <style scoped>
