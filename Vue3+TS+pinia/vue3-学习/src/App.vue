@@ -211,12 +211,12 @@ const clickHandler = ()=>{
 
 <!--    <Tree :data="data"></Tree>-->
 <!--动态组件-->
-<!--    <div style="display: flex" >-->
-<!--      <div @click="switchCom(item,index)" :class="[active === index ? 'active': '']" class="tabs" v-for="(item,index) in data2">-->
-<!--        <div>{{item.name}}</div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <component :is="comId"></component>-->
+    <div style="display: flex" >
+      <div @click="switchCom(item,index)" :class="[active === index ? 'active': '']" class="tabs" v-for="(item,index) in data2">
+        <div>{{item.name}}</div>
+      </div>
+    </div>
+    <component :is="comId"></component>
 <!--  异步组件-->
 <!--  <Suspense>-->
 <!--    <div>-->
@@ -315,7 +315,7 @@ const clickHandler = ()=>{
 <!--    <el-button @click="clickHandler" type="primary">打开弹窗</el-button>-->
 <!--  </div>-->
 <!--  动态表单-->
-  <FormPage/>
+<!--  <FormPage/>-->
 </template>
 
 <style scoped>

@@ -1,0 +1,24 @@
+html {
+  overflow: hidden;
+}
+$n:14;
+$size:100vw/$n;
+.line{
+  display: flex;
+  margin-top: -$size/6;
+  &:nth-child(even){
+  transform:translateX(-$size / 2);
+  }
+}
+.item{
+  transition: all 0.3s;
+  flex-shrink: 0;
+  width: $size;
+  height: $size;
+  background: #000;
+  clip-path:polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%) ;
+}
+:export{
+  size:$size;
+  n:$n;
+}
