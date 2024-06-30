@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MiniVue3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Vue3+TS+pinia/vue3-学习" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/chromium" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/face-api-face-recognition" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/node-learning" vcs="Git" />

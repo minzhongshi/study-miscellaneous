@@ -12,7 +12,7 @@ import App from './App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 // pinia
-import store from "./store";
+import store from "./store/index.ts";
 app.use(store)
 // tailwindcss
 import './tailwindcss.css'
@@ -24,7 +24,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 // mitt
-import $bus from '../src/bus/index'
+import $bus from '../src/bus/index.ts'
 app.config.globalProperties.$bus = $bus
 // 全局变量和方法
 app.config.globalProperties.$env = 'dev'
@@ -61,13 +61,13 @@ app.directive('size-ob', sizeDireect)
 app.directive('lazy-ob', lazyDireect)
 app.directive('slide-in', slidein)
 // 自定义Hooks + 自定义指令
-import useResize from "../src/hooks/useResize";
+import useResize from "../src/hooks/useResize.ts";
 import {Emitter, EventType} from "mitt";
 // @ts-ignore
 app.use(useResize)
 
 //vue-router
-import {router} from "../Router"
+import {router} from "../Router/index.ts"
 app.use(router)
 
 

@@ -3,12 +3,25 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import {PostcssPxToViewport} from "./plugins/postcss=px-to-viewport";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
 export default ({mode}:any)=>{
   console.log(loadEnv(mode,process.cwd()))
   return defineConfig({
     plugins: [
+      legacy({
+        targets: [
+          '> 1%',
+          'not ie 11',
+          'not op_mini all',
+          'chrome >= 78',
+          'edge >= 78',
+          'firefox >= 72',
+          'safari >= 13',
+          'opera >= 67',
+        ],
+      }),
         vue(),
         vueJsx(),
     ],

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="decrement">-</button>
+<span id="count">0</span>
+<button id="increment">+</button>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/redux/4.2.1/redux.min.js"></script>
+<script>
+    /**
+     * 1. 定义reducer函数 ：更具不同的action对象，返回不同的新的state
+     * 2. 使用reducer函数生成store实例
+     * 3. 通过store实例的subscribe订阅数据变化
+     * 4. 通过store实例的dispatch函数提交action更改状态
+     * 5. 通过store实例的getState方法获取最新状态
+     */
+
+    // 1
+    function reducer(state = {count : 0},action) {
+        if (action.type === 'INCREMENT'){
+            return {count: state.count + 1}
+        }
+        if (action.type === 'DECREMENT'){
+            return {count: state.count - 1}
+        }
+        return state;
+    }
+
+    // 2
+    const store = Redux.createStore(reducer);
+
+    // 3
+    store.subscribe(()=>{
+        document.querySelector('#count').innerText = store.getState().count;
+    })
+
+    // 4
+    const inBtn = document.querySelector('#decrement');
+    inBtn.addEventListener('click',()=>{
+        store.dispatch({
+            type: 'DECREMENT'
+        })
+    })
+    const inBtn2 = document.querySelector('#increment');
+    inBtn2.addEventListener('click',()=>{
+        store.dispatch({
+            type: 'INCREMENT'
+        })
+    })
+
+    //5
+
+</script>
+</body>
+</html>
